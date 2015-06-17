@@ -17,7 +17,7 @@
       <div class="navbar">
         <div class="navbar-inner">
           <div class="left"></div>
-          <div class="center sliding">Main Menu</div>
+          <div class="center sliding"><img src="/img/brand.png" /> MyTippingApp</div>
           <div class="right"></div>
         </div>
       </div>
@@ -26,6 +26,7 @@
           <div class="page-content">
             <div class="list-block">
               <ul>
+                  <li class="list-group-title">Main Menu</li>
                 <li>
                   <a href="/www/tipresult.html" class="item-content item-link external">
                     <div class="item-inner">
@@ -63,6 +64,26 @@
                 </li>
               </ul>
             </div>
+              
+            <div class="list-block">
+              <ul>
+                  <li class="list-group-title">Settings</li>
+                <li>
+                  <a href="#" class="item-content item-link open-picker" data-picker=".picker-2"  id="selectodds">
+                    <div class="item-inner">
+                      <div class="item-title">Set Desired Odds</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="item-content item-link open-picker" data-picker=".picker-1" id="selectprof">
+                    <div class="item-inner">
+                      <div class="item-title">Set Desired Profit</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>  
           </div>
         </div>
       </div>
@@ -79,6 +100,7 @@
           <div class="page-content">
             <div class="list-block">
               <ul>
+                   <li class="list-group-title">Main Menu</li>
                 <li>
                   <a href="/www/tipresult.html" class="item-content item-link external">
                     <div class="item-inner">
@@ -116,6 +138,26 @@
                 </li>
               </ul>
             </div>
+              
+                <div class="list-block">
+              <ul>
+                  <li class="list-group-title">Settings</li>
+                <li>
+                  <a href="#" class="item-content item-link open-picker" data-picker=".picker-2" id="selectodds">
+                    <div class="item-inner">
+                      <div class="item-title">Set Desired Odds</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="item-content item-link open-picker" data-picker=".picker-1" id="selectprof">
+                    <div class="item-inner">
+                      <div class="item-title">Set Desired Profit</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>  
           </div>
         </div>
       </div>
@@ -133,7 +175,6 @@
 .centero {
   width: 80px;
   height: 100%;
-  position: absolute;
 }
 .rectangle {
   height: 15px;
@@ -170,12 +211,11 @@
             </a>
           </div>
           <div class="center sliding">Live Tips</div>
-          <div class="right"><img src="/img/brand.png" /></div>
-          <div class="subnavbar">
+          <div class="right"><span class="hint--left" data-hint="Approx Time till Update"><div class="centero"><div class="rectangle-2"></div></div></span><a href="#"  class="button" id="btnSave"><i class="fa fa-refresh"></i></a></div>
+           <div class="subnavbar">
             <!-- Sub navbar content-->
             <div class="left">
               <a href="#" data-picker=".picker-1" class="open-picker button" id="selectprof">Set Desired Profit</a></div>
-              <span class="hint--bottom" data-hint="Approx Time till Update"><div class="center centero"><div class="rectangle-2"></div></div></span>
             <div class="right">
               <a href="#" data-picker=".picker-2" class="open-picker button" id="selectodds">Set Desired Odds</a>
             </div>
@@ -189,159 +229,145 @@
           <!-- Scrollable page content-->
           <div class="page-content">
 
-            <!-----------------TIPS-------------------------------------->
+            <!--TIPS-->
             <style>
               .card-header {font-size: 14px;}
                              .row {padding-top:5px;}
                              .card p {margin:0;}
+                .card { 
+                    max-width: 600px;
+                }
             </style>
-            <div data-bind="foreach: arrayoftip">
+            <div data-bind="foreach: arrayoftip" align="center">
               <div class="card">
                 <form method="post" action="" data-bind="textInput: key, attr : {name: 'tipper'+$index()+'name',id: 'tipper'+$index()+'name' }">
 
 
-                  <!-----MAIN TIP INFO------->
-                  <div class="card-header" style="background-color: #13c76c;height:20px">
-                    <span class="hint--bottom" data-hint="Race Name">
-                <div class="col-40" style="padding-left:5px;color:#fff;"><p data-bind="text: Race"></p></div>
-                </span>
-                    <span class="hint--bottom" data-hint="Race Number">
-                <div class="col-20"><p style="color:#fff;">Race: <span data-bind="text: raceno"></span></p>
-                  </div>
-                  </span>
-                  <span class="hint--bottom" data-hint="Jump Time">
-                <div class="col-40" align="right" style="padding-right:10px;"><p style="color:#fff;">Start Time: <span data-bind="text: Time"></span></p>
-              </div>
-              </span>
-            </div>
-            <!-----MAIN TIP INFO------->
+                  <!---MAIN TIP INFO-->
+<div class="card-header" style="background-color: #00b057;height:20px">
+
+<span class="hint--bottom" data-hint="Race Name">
+                    <div class="col-40" style="padding-left:5px;color:#fff;"><p data-bind="text: Race"></p></div>
+</span>
+<span class="hint--bottom" data-hint="Race Number">
+                <div class="col-20"><p style="color:#fff;">Race: <span data-bind="text: raceno"></span></p></div>
+</span>
+<span class="hint--bottom" data-hint="Jump Time">
+                <div class="col-40" align="right" style="padding-right:10px;"><p style="color:#fff;">Start Time: <span data-bind="text: Time"></span></p></div>
+</span>
+                    </div>
+            <!---MAIN TIP INFO-->
 
             <div class="card-content">
               <div class="card-content-inner">
 
-                <!-----COL NAME HEADER------->
+                <!---COL NAME HEADER-->
                 <div class="row no-gutter" style=" ">
                   <div class="col-10" style="padding-left:5px;"> No.</div>
                   <div class="col-50">Selection</div>
                   <div class="col-20">Odds</div>
                   <div class="col-20">Stake &dollar;</div>
                 </div>
-                <!-----HEADER------->
+                <!-----HEADER------>
 
-                <!-----TIP1------->
-                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="style: { background: run1price1() > oddvalue()  ? '#f5c4c4' : 'none'}" id="rowruntop">
+                <!-----TIP1------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove1, style: { background: run1price1() > oddvalue()  ? '#f5c4c4' : 'none'}, visible: run1price1() != '0'" id="rowruntop">
                   <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run1num"></p></strong></div>
                   <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run1name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run1score" id="runscore"></p></strong></div>
                   <div class="col-15 child">
-                    <input name="textfield1" type="number" id="textfield1" style='border:0px solid #000000;font-size:14px;;background:transparent;' onChange="recalcodds()" size="6" data-bind="textInput: run1price1" onfocus="{ this.value = ''; }" readonly>
+                    <span style='font-size:14px;'  size="6" data-bind="text: run1price1" ></span>
                   </div>
                   <div class="col-20 child">
-                    <input name="stake1" type="text" id="stake1" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                    <span data-bind="text: stake1" style='text-align: center;font-size:13px;'></span>
                   </div>
                 </div>
-                <!-----TIP1------->
+                <!-----TIP1------>
 
-                <!-----TIP2------->
-                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="style: { background: run2price1() > oddvalue() ? '#f5c4c4' : 'none'}">
+                <!-----TIP2------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove2, style: { background: run2price1() > oddvalue() ? '#f5c4c4' : 'none'}, visible: run2price1() != '0'" id="rowruntop">
                   <div class="col-10 child"><strong> <p style="padding-left:5px;" data-bind="text: run2num"></p></strong></div>
                   <div class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run2name" ></p><p style="font-size:11px; color:#00b058;" data-bind="text: run2score"></p></strong></div>
                   <div class="col-15 child">
-                    <input name="textfield2" id="textfield2" style='border:0px solid #000000;font-size:14px;background:transparent;' type="number" size="6" onChange="recalcodds()" data-bind="textInput: run2price1" onfocus="{ this.value = ''; }" readonly>
+                    <span style='font-size:14px;'  size="6" data-bind="text: run2price1" ></span>
                   </div>
                   <div class="col-20 child">
-                    <input name="stake2" type="text" id="stake2" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                   <span data-bind="text: stake2" style='text-align: center;font-size:13px;'></span>
                   </div>
                 </div>
                 <!-----TIP2------->
 
-                <!-----TIP3------->
-                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="style: { background: run3price1() > oddvalue() ? '#f5c4c4' : 'none'}">
+                <!-----TIP3------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove3, style: { background: run3price1() > oddvalue() ? '#f5c4c4' : 'none'}, visible: run3price1() != '0'" id="rowruntop">
                   <div class="col-10 child"><strong> <p style="padding-left:5px;" data-bind="text: run3num"></p></strong></div>
                   <div class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run3name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run3score"></p></strong></div>
                   <div class="col-15 child">
-                    <input name="textfield3" id="textfield3" style='border:0px solid #000000;font-size:14px;background:transparent;' type="number" size="6" onChange="recalcodds()" data-bind="textInput: run3price1" onfocus="{ this.value = ''; }" readonly>
+                    <span style='font-size:14px;'  size="6" data-bind="text: run3price1" ></span>
                   </div>
                   <div class="col-20 child">
-                    <input name="stake3" type="text" id="stake3" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                    <span data-bind="text: stake3" style='text-align: center;font-size:13px;'></span>
                   </div>
                 </div>
                 <!-----TIP3------->
 
-                <!-----TIP4------->
-                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;border-bottom: thin solid #dfdfdf;" data-bind="style: { background: run4price1() > oddvalue() ? '#f5c4c4' : 'none'}">
+                <!-----TIP4------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;border-bottom: thin solid #dfdfdf;" data-bind="click: remove4, style: { background: run4price1() > oddvalue() ? '#f5c4c4' : 'none'}, visible: run4price1() != '0'" id="rowruntop">
                   <div class="col-10 child child"><strong> <p style="padding-left:5px;" data-bind="text: run4num"></p></strong></div>
                   <div class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run4name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run4score"></p></strong></div>
                   <div class="col-15 child">
-                    <input name="textfield4" id="textfield4" style='border:0px solid #000000;font-size:14px;background:transparent;' type="number" size="6" onChange="recalcodds()" data-bind="textInput: run4price1" onfocus="{ this.value = ''; }" readonly>
+                    <span style='font-size:14px;'  size="6" data-bind="text: run4price1" ></span>
                   </div>
                   <div class="col-20 child">
-                    <input name="stake4" type="text" id="stake4" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                    <span data-bind="text: stake4" style='text-align: center;font-size:13px;'></span>
                   </div>
                 </div>
                 <!-----TIP4------->
 
-                <!-----TOTALS------->
-                <div class="row no-gutter" style="margin-top:15px">
-                  <div class="col-40" style="display:none">
-                    <input name="overallodds" type="text" id="overallodds" onChange="overalloddsCalc()" style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
-                  </div>
-                  <div class="col-20" align="center" style="padding-left:5px;">
-                    <input name="totalstake" type="text" id="totalstake" value="100" size="6" onChange="recalcodds()" style=' background-color:#ebebeb;text-align: center; width: 60px;'>
-                  </div>
-                  <div class="col-15" align="center ">
-                    <input name="returncash" type="text" size="6" style='border:0px solid #000000; text-align: center; width: 50px;' readonly="TRUE">
-                  </div>
-                  <div class="col-20" align="center">
-                    <input name="profit" type="text" size="6" style="border:0px solid #000000; text-align: center;background:none; width: 50px;" data-bind="textInput: key, attr : {id: 'totalstake'+$index()}">
-                    <div data-bind="textInput: key, attr : {id: 'dnb'+$index()}" style="color:red"></div>
-                  </div>
-                </div>
-                <!-----TOTALS------->
-
-                <!-----FOOTER HEADERS------->
+                <!-----TOTALS------>
+                  <!-----FOOTER HEADERS------>
                 <div class="row no-gutter">
                   <div align="center" class="col-40" style="display:none"><strong></strong></div>
                   <div align="center" class="col-20" style="text-align:center; font-size:10px;"><strong>Total Stake</strong></div>
                   <div align="center" class="col-15" style="text-align:center; font-size:10px;"><strong>Return</strong></div>
-                  <div align="center" class="col-20" style="text-align:center; font-size:10px;"><strong>Profit</strong></div>
+                  <div align="center" class="col-20" style="text-align:center; font-size:10px;"><strong>Profit</strong><br><span style="color:red" data-bind="visible: 0 > profittot()">DO NOT BET</span></div>
                 </div>
-                <!-----FOOTER HEADERS------->
+                <!-----FOOTER HEADERS------>
+                <div class="row no-gutter" >
+                  <div class="col-40" style="display:none">
+                    <input name="overallodds" type="text" id="overallodds"  style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
+                  </div>
+                  <div class="col-20" align="center" style="padding-left:5px;">
+                    <input name="totalstake" type="text" id="totalstake" size="6"  style=' background-color:#ebebeb;text-align: center; width: 60px;' data-bind="textInput: totalstake">
+                  </div>
+                  <div class="col-15" align="center ">
+                    <input name="returncash" type="text" size="6" style='border:0px solid #000000; text-align: center; width: 50px;' readonly="TRUE" data-bind="value: returncashval">
+                  </div>
+                  <div class="col-20" align="center">
+                    <input name="profit" type="text" size="6" style="border:0px solid #000000; text-align: center;background:none; width: 50px;" data-bind="textInput: profittot, style: { background: proflev() > profittot() ? '#f5c4c4' : '#00b057'}">
+                    </div>
+                  </div>
+                </div>
+                <!-----TOTALS------>
 
-                <!-----HIDDEN CALC PROBS------->
-                <div class="row no-gutter" style='border:0px solid #000000; display:none;'>
-                  <div class="col col-20">
-                    <input name="prob2" type="text" id="prob2" style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
-                  </div>
-                  <div class="col col-20">
-                    <input name="prob1" type="text" id="prob1" style='border:0px solid #000000; display:none;' size="6" readonly="TRUE" onChange="probCalc(1)">
-                  </div>
-                  <div class="col col-20">
-                    <input name="prob3" type="text" id="prob3" style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
-                  </div>
-                  <div class="col col-20">
-                    <input name="prob4" type="text" id="prob4" style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
-                  </div>
-                </div>
-                <!-----HIDDEN CALC PROBS------->
+                
 
               </div>
-              <!-----card-content-inner------->
+              <!-----card-content-inner------>
             </div>
-            <!-----card-content------->
+            <!-----card-content------>
             </form>
           </div>
-          <!-------------CARD END----------------->
+          <!-------------CARD END---------------->
         </div>
-        <!--------------FOREACH DIV END---------------->
-        <!-----------------TIPS-------------------------------------->
+        <!--------------FOREACH DIV END--------------->
+        <!-----------------TIPS------------------------------------>
 
       </div>
-      <!-----------PAGE CONTENT DIV END---------------------->
+      <!-----------PAGE CONTENT DIV END-------------------->
     </div>
     <!---------------------index-1 PAGE END---------------------->
   </div>
   <!--------------------------pages navbar-through END----------->
-</div>
+
 <!---------------------------view-1 END-------------------------->
 
 <!-- Second view (for second wrap)-->
@@ -2462,7 +2488,7 @@
   </div>
   <div class="pages navbar-through">
     <div data-page="index-3" class="page">
-      <div class="page-content">
+      <div class="page-content" align="center"> 
         <!-----------------HELP-------------------------------------->
         <style>
           .card-header {font-size: 14px;  font-weight: 600;
@@ -2632,30 +2658,14 @@ window.location.reload(true);" class="button external">Take the Tour</a>
   </div>
 </div>
 </div>
-<script src="/javascripts/dutch/dutch.js"></script>
-<script src="/javascripts/dutch/dutch1.js"></script>
-<script src="/javascripts/dutch/dutch2.js"></script>
-<script src="/javascripts/dutch/dutch3.js"></script>
-<script src="/javascripts/dutch/dutch4.js"></script>
-<script src="/javascripts/dutch/dutch5.js"></script>
-<script src="/javascripts/dutch/dutch6.js"></script>
-<script src="/javascripts/dutch/dutch7.js"></script>
-<script src="/javascripts/dutch/dutch8.js"></script>
-<script src="/javascripts/dutch/dutch9.js"></script>
-<script src="/javascripts/dutch/dutch10.js"></script>
-<script src="/javascripts/dutch/dutch11.js"></script>
-<script src="/javascripts/dutch/dutch12.js"></script>
-<script src="/javascripts/dutch/dutch13.js"></script>
-<script src="/javascripts/dutch/dutch14.js"></script>
-<script src="/javascripts/dutch/dutch15.js"></script>
-<script src="/javascripts/dutch/dutch16.js"></script>
+
 
 <script type='text/javascript' src='/javascripts/knockout-3.0.0.js'></script>
 <script src="/javascripts/knockout.mapping-latest.debug.js"></script>
 <script type='text/javascript' src="/javascripts/ko.datasource.js"></script>
 <script src="/javascripts/jquery.csv-0.71.js"></script>
 <script src="/javascripts/ko.js"></script>
-<script src="/javascripts/proflev.js"></script>
+
 <style>
   /* A bit of demo styles */;
       .swiper-container {
@@ -2683,50 +2693,7 @@ window.location.reload(true);" class="button external">Take the Tour</a>
           align-items: center;
       }
 </style>
-<script>
-  function alertMsg() {
-    //Textfield1
-    function detectElement(arrow) {
-      arrow.parent().find('#textfield1').val('0');
-    }
 
-    $('.child').click(function() {
-      detectElement($(this));
-    });
-
-    //Textfield2
-    function detectElement2(arrow2) {
-      arrow2.parent().find('#textfield2').val('0');
-    }
-
-    $('.child').click(function() {
-      detectElement2($(this));
-    });
-
-    //Textfield3
-    function detectElement3(arrow3) {
-      arrow3.parent().find('#textfield3').val('0');
-    }
-
-    $('.child').click(function() {
-      detectElement3($(this));
-    });
-
-    //Textfield1
-    function detectElement4(arrow4) {
-      arrow4.parent().find('#textfield4').val('0');
-    }
-
-    $('.child').click(function() {
-      detectElement4($(this));
-    });
-
-  }
-  $(document).ready(function() {
-    setInterval(alertMsg, 1000);
-    // the function you called by setTimeout must not be a string.
-  });
-</script>
 <!-- Picker 1 -->
 <div class="picker-modal picker-1">
   <div class="toolbar">
@@ -2749,7 +2716,7 @@ window.location.reload(true);" class="button external">Take the Tour</a>
               <div class="item-inner">
                 <div class="item-title label">Profit</div>
                 <div class="item-input">
-                  <input type="text" name="profitlevel" id="profitlevel"  value="50">
+                  <input type="text" data-bind="textInput: proflev"  value="50">
                 </div>
               </div>
             </div>
@@ -2764,14 +2731,15 @@ window.location.reload(true);" class="button external">Take the Tour</a>
   <div class="toolbar">
     <div class="toolbar-inner">
       <div class="left">Set Desired Odds</div>
-      <div class="right"><a href="#" class="close-picker">Done</a></div>
+        <form action="/odds" method="POST" class="form-horizontal">
+      <div class="right"><a href="#" class="close-picker" >Done</a></div>
     </div>
   </div>
   <div class="picker-modal-inner">
     <div class="content-block" style="margin:0;">
       <p style="font-size:12px;">Enter your desired odds here. The Default Amount is $15.</p>
       <p style="font-size:12px;">The runners paying over this amount will be highlighted. To exclude a runner and automatically recalculate the stake amount simply click on the runner name.</p>
-
+        
       <div class="list-block">
         <ul>
           <!-- Text inputs -->
@@ -2779,15 +2747,21 @@ window.location.reload(true);" class="button external">Take the Tour</a>
             <div class="item-content">
 
               <div class="item-inner">
+                  
                 <div class="item-title label">Odds</div>
+                   
                 <div class="item-input">
-                  <input type="text" data-bind="textInput: oddvalue" placeholder="15" />
+                  <input type="text" data-bind="textInput: oddvalue" name="odds" id="odds"/>
                 </div>
+                     
               </div>
+                   
             </div>
           </li>
         </ul>
       </div>
+       
+                  </form>
     </div>
   </div>
 </div>

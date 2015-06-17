@@ -227,7 +227,19 @@ $(function () {
         return result;
     };
 
+var days = [
+    'SUN',
+    'MON',
+    'TUE',
+    'WED',
+    'THU',
+    'FRI',
+    'SAT'
+];
 
+d = new Date();
+x = d.getDay();
+    daterday = ko.observable(x).extend({ numeric: 4 });
     oddvalue = ko.observable(15).extend({ numeric: 4 });
     proflev = ko.observable(100).extend({ numeric: 4 });
     key = ko.observable('');
