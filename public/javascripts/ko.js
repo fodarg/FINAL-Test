@@ -69,8 +69,10 @@ $(function () {
         this.run4price1 = ko.observable(item.run4price1).extend({ numeric: 4 });
         this.run4price2 = ko.observable(item.run4price2);
         this.totalstake = ko.observable(100);
+        this.isSlideVisible1 = ko.observable(true);
         this.remove1 = function () {
             this.run1price1(0);
+            this.isSlideVisible1(false);
         };
         this.remove2 = function () {
             this.run2price1(0);
@@ -133,7 +135,11 @@ $(function () {
 
         //return cash
           this.returncashval  = ko.computed(function() {
+            if (this.sumChoices() == Number.POSITIVE_INFINITY || this.sumChoices() == Number.NEGATIVE_INFINITY)
+            { return '--';
+            } else {
             return Math.round((this.totalstake() * this.sumChoices()));
+            }
            }, this);
            
            this.returncashvalcal  = ko.computed(function() {
@@ -189,14 +195,19 @@ $(function () {
             }
         }, this);
         //profit total   
+
         this.profittot = ko.computed(function () {
+            if (this.sumChoices() == Number.POSITIVE_INFINITY || this.sumChoices() == Number.NEGATIVE_INFINITY)
+            { return '--';
+            } else {
             return (this.returncashvalcal()- this.totalstake());
+            }
         }, this);
+        
          
         //COMPLETE
         return this;
     }
-
 
     ko.extenders.numeric = function (target, precision) {
         //create a writable computed observable to intercept writes to our observable

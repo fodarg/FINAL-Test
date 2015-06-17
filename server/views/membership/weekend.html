@@ -254,7 +254,7 @@
                 <form method="post" action="" data-bind="textInput: key, attr : {name: 'tipper'+$index()+'name',id: 'tipper'+$index()+'name' }">
 
 
-                  <!---MAIN TIP INFO-->
+                 <!---MAIN TIP INFO-->
 <div class="card-header" style="background-color: #00b057;height:20px">
 
 <span class="hint--bottom" data-hint="Race Name">
@@ -282,7 +282,17 @@
                 <!-----HEADER------>
 
                 <!-----TIP1------>
-                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove1, style: { background: run1price1() > oddvalue()  ? '#f5c4c4' : 'none'}, visible: run1price1() != '0'" id="rowruntop">
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;background:rgb(199, 199, 204);color: rgb(175, 175, 176);" data-bind="visible: !isSlideVisible1()" id="rowruntop">
+                  <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run1num"></p></strong></div>
+                  <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run1name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run1score" id="runscore"></p></strong></div>
+                  <div class="col-15 child">
+                    <span style='font-size:14px;'></span>
+                  </div>
+                  <div class="col-20 child">
+                    <span style='text-align: center;font-size:13px;'></span>
+                  </div>
+                </div>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove1, style: { background: run1price1() > oddvalue()  ? '#f5c4c4' : 'none'}, visible: isSlideVisible1()" id="rowruntop">
                   <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run1num"></p></strong></div>
                   <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run1name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run1score" id="runscore"></p></strong></div>
                   <div class="col-15 child">
@@ -295,6 +305,16 @@
                 <!-----TIP1------>
 
                 <!-----TIP2------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;background:rgb(199, 199, 204);color: rgb(175, 175, 176);" data-bind="visible: run2price1() == '0'" id="rowruntop">
+                  <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run2num"></p></strong></div>
+                  <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run2name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run2score" id="runscore"></p></strong></div>
+                  <div class="col-15 child">
+                    <span style='font-size:14px;'></span>
+                  </div>
+                  <div class="col-20 child">
+                    <span style='text-align: center;font-size:13px;'></span>
+                  </div>
+                </div>
                 <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove2, style: { background: run2price1() > oddvalue() ? '#f5c4c4' : 'none'}, visible: run2price1() != '0'" id="rowruntop">
                   <div class="col-10 child"><strong> <p style="padding-left:5px;" data-bind="text: run2num"></p></strong></div>
                   <div class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run2name" ></p><p style="font-size:11px; color:#00b058;" data-bind="text: run2score"></p></strong></div>
@@ -308,6 +328,16 @@
                 <!-----TIP2------->
 
                 <!-----TIP3------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;background:rgb(199, 199, 204);color: rgb(175, 175, 176);" data-bind="visible: run3price1() == '0'" id="rowruntop">
+                  <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run3num"></p></strong></div>
+                  <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run3name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run3score" id="runscore"></p></strong></div>
+                  <div class="col-15 child">
+                    <span style='font-size:14px;'></span>
+                  </div>
+                  <div class="col-20 child">
+                    <span style='text-align: center;font-size:13px;'></span>
+                  </div>
+                </div>
                 <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="click: remove3, style: { background: run3price1() > oddvalue() ? '#f5c4c4' : 'none'}, visible: run3price1() != '0'" id="rowruntop">
                   <div class="col-10 child"><strong> <p style="padding-left:5px;" data-bind="text: run3num"></p></strong></div>
                   <div class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run3name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run3score"></p></strong></div>
@@ -321,6 +351,16 @@
                 <!-----TIP3------->
 
                 <!-----TIP4------>
+                <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;background:rgb(199, 199, 204);color: rgb(175, 175, 176);" data-bind="visible: run4price1() == '0'" id="rowruntop">
+                  <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run4num"></p></strong></div>
+                  <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run4name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run4score" id="runscore"></p></strong></div>
+                  <div class="col-15 child">
+                    <span style='font-size:14px;'></span>
+                  </div>
+                  <div class="col-20 child">
+                    <span style='text-align: center;font-size:13px;'></span>
+                  </div>
+                </div>
                 <div class="row no-gutter" style=" border-top: thin solid #dfdfdf;border-bottom: thin solid #dfdfdf;" data-bind="click: remove4, style: { background: run4price1() > oddvalue() ? '#f5c4c4' : 'none'}, visible: run4price1() != '0'" id="rowruntop">
                   <div class="col-10 child child"><strong> <p style="padding-left:5px;" data-bind="text: run4num"></p></strong></div>
                   <div class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run4name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run4score"></p></strong></div>
@@ -2806,7 +2846,6 @@ window.location.reload(true);" class="button external">Take the Tour</a>
     description: "You can set a minimum profit you would like to achieve here.  The default amount is $50.",
     id: "guider3",
     next: "guider4",
-    position: 6,
     title: "Desired Profit",
     width: 150
   });
@@ -2820,7 +2859,6 @@ window.location.reload(true);" class="button external">Take the Tour</a>
     description: "You can set a maximum odds amount here.  This will highlight runners over this amount.  The default limit is $15.",
     id: "guider4",
     next: "guider5",
-    position: 6,
     title: "Desired Odds",
     width: 150
   });
@@ -2890,7 +2928,6 @@ window.location.reload(true);" class="button external">Take the Tour</a>
     description: "Click on a Runner to remove them from your selections.  The Stake Amount will automatically recalculate.  Runners are highlighted red if the odds are above your desired odds amount.",
     id: "guider8",
     next: "guider9",
-    position: 6,
     title: "Removing Runners",
     width: 200
   });
