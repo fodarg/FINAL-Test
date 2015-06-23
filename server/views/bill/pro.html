@@ -1,0 +1,160 @@
+<div class="row">
+      <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Current Plan</label>
+        <div class="col-sm-4">
+          <p class="form-control-static">{{plans[user.plan].name}} - Total per Term:  ${{plans[user.plan].price}}</p>
+
+        </div>
+      </div></div>
+    <form {% if !user.stripe.last4 %}id="cardForm"{% endif %} action="/user/plan" method="POST" class="form-horizontal">
+        <div class="row pricing">
+				   <div class="col-md-3">
+						<ul class="pricing-table">
+  <li class="title">Casual</li>
+  <li class="price">$39<span style="font-size:12px;">/month</span></li>
+  <li class="description">Billed Annually</li>
+  <li class="description">$49 month to month</li>
+  <li class="cta-button">    
+                            <div >
+        <input type="radio" name="plan"  value="casual" data-toggle="radio">
+        <label for="button2" >Monthly</label>
+    </div>
+                             <div >
+        <input type="radio" name="plan"  value="casual-yearly" data-toggle="radio">
+        <label for="button2" >Yearly</label>
+    </div></li>
+  <li class="bullet-item">Saturday Tips</li>
+
+</ul>
+					</div>
+              				   <div class="col-md-3">
+						<ul class="pricing-table">
+  <li class="title">Weekend</li>
+  <li class="price">$59<span style="font-size:12px;">/month</span></li>
+  <li class="description">Billed Annually</li>
+  <li class="description">$69 month to month</li>
+  <li class="cta-button">       <div >
+        <input type="radio" name="plan"  value="weekend" data-toggle="radio" >
+        <label for="button1" >Monthly</label>
+    </div>
+                            <div >
+        <input type="radio" name="plan"  value="weekend-yearly" data-toggle="radio">
+        <label for="button2" >Yearly</label>
+    </div></li>
+  <li class="bullet-item">Saturday &amp; Sunday Tips</li>
+</ul>
+					</div>
+              				   <div class="col-md-3">
+						<ul class="pricing-table">
+  <li class="title">Semi-Pro</li>
+  <li class="price">$79<span style="font-size:12px;">/month</span></li>
+  <li class="description">Billed Annually</li>
+  <li class="description">$89 month to month</li>
+  <li class="cta-button">       <div >
+        <input type="radio" name="plan"  value="semipro" data-toggle="radio" >
+        <label for="button1" >Monthly</label>
+    </div>
+                            <div >
+        <input type="radio" name="plan"  value="semipro-yearly" data-toggle="radio">
+        <label for="button2" >Yearly</label>
+    </div></li>
+  <li class="bullet-item">Wednesday, Thursday, Friday &amp; Saturday Tips</li>
+</ul>
+					</div>
+              				   <div class="col-md-3">
+						<ul class="pricing-table">
+  <li class="title">Professional</li>
+  <li class="price">$109<span style="font-size:12px;">/month</span></li>
+  <li class="description">Billed Annually</li>
+  <li class="description">$119 month to month</li>
+  <li class="cta-button">        
+                            <div >
+        <input type="radio" name="plan"  value="professional-yearly" data-toggle="radio">
+        <label for="button2" >Yearly</label>
+    </div></li>
+  <li class="bullet-item">Tips 7 Days Per Week</li>
+</ul>
+					</div>
+        </div>
+        
+ {% if !user.stripe.last4 %}
+      <div id="cardWrapper">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Card Number</label>
+          <div class="col-sm-4">
+            <input id="card-num" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Card Details</label>
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="col-xs-4">
+                <input id="card-month" type="text" size="2" maxlength="2" class="form-control" placeholder="MM">
+              </div>
+              <div class="col-xs-4">
+                <input id="card-year"  type="text" size="2" maxlength="2" class="form-control" placeholder="YY">
+              </div>
+              <div class="col-xs-4">
+                <input id="card-cvc" type="text" size="3" maxlength="3" class="form-control" placeholder="CVC">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-6">
+            <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+              <p>{{error}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button type="submit" class="btn btn-primary">Choose Plan</button>
+        </div>
+      </div>
+    </form>
+
+    {% if user.stripe.last4 %}
+    <div class="page-header">
+      <h3>Payment Details</h3>
+    </div>
+    <form role="form" id="cardForm" action="/user/billing" method="POST" class="form-horizontal">
+       <div class="form-group">
+        <label class="col-sm-3 control-label">Card Number</label>
+        <div class="col-sm-4">
+          <input id="card-num" type="text" class="form-control" placeholder="XXXX XXXX XXXX {{user.stripe.last4}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Card Details</label>
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-xs-4">
+              <input id="card-month" type="text" size="2" maxlength="2" class="form-control" placeholder="MM">
+            </div>
+            <div class="col-xs-4">
+              <input id="card-year"  type="text" size="2" maxlength="2" class="form-control" placeholder="YY">
+            </div>
+            <div class="col-xs-4">
+              <input id="card-cvc" type="text" size="3" maxlength="3" class="form-control" placeholder="CVC">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-6">
+          <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+            <p>{{error}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button type="submit" class="btn btn-primary">Update Card</button>
+        </div>
+      </div>
+    </form>
+    {% endif %}

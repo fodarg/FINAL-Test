@@ -1,0 +1,460 @@
+{% extends '../layouts/dashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<script>window.Intercom('update');</script>
+
+
+   
+<!------------NAVBAR------------------>
+ 
+<div class="statusbar-overlay"></div>
+
+ 
+<div class="views">
+ 
+ 
+<div class="panel-overlay"></div>
+ 
+<div class="panel panel-left panel-cover">
+ 
+<div class="view view-left navbar-through">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="left"></div>
+<div class="center sliding">Main Menu</div>
+<div class="right"></div>
+</div>
+</div>
+<div class="pages">
+<div data-page="index-left" class="page">
+<div class="page-content">
+<div class="list-block">
+<ul>
+<li><a href="/dashboard" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Tips</div>
+</div></a></li>
+<li><a href="/www/tipresult.html" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Results</div>
+</div></a></li>
+<li><a id="Intercom" href="mailto:gou9n4i8@incoming.intercom.io" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Support</div>
+</div></a></li>
+<li><a href="/profile" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Profile</div>
+</div></a></li>
+<li><a href="/logout" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Logout</div>
+</div></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!----------------------NAVBAR END-------------------->
+
+
+    <!-- Views, and they are tabs-->
+
+    <div class="views tabs toolbar-through">
+      <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+      <div id="view-1" class="view view-main tab active">
+                  <div class="navbar">
+          <div class="navbar-inner">
+              <div class="left">
+            <a href="#" data-panel="left" class="open-panel link icon-only" >
+                <i class="icon icon-bars"></i>
+            </a>
+             </div>
+            <div class="center sliding">Billing</div>
+          </div>
+        </div>
+        <!-- Pages-->
+        <div class="pages navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+<!-----------------TIPS-------------------------------------->
+                <div class="content-block-title">Billing</div>
+                <div class="card">
+  <div class="card-header">Your Current Plan</div>
+  <div class="card-content">
+    <div class="card-content-inner">{{plans[user.plan].name}} - Total per Term:  ${{plans[user.plan].price}}</div>
+  </div>
+</div>
+        
+    <form {% if !user.stripe.last4 %}id="cardForm"{% endif %} action="/user/plan" method="POST" class="form-horizontal">
+
+                                <div class="row">
+            <div class="col-100 tablet-33">
+    <!---WEEKEND--->
+    <div class="card">
+  <div class="card-header" style="background:#E6E6E6">Weekend</div>
+  <div class="card-content">
+    <!--CONTENT-->
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><strong>$39/Month</strong></div>
+          </div>
+        </li>
+           <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Monthly</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title"><strong>$390/Year</strong></div>
+          </div>
+        </li>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Annually</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;">Saturday &amp; Sunday Tips</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--CONTENT-->
+ </div>
+
+</div>
+                         <div class="card">
+  <div class="card-content">   
+                        <div class="list-block">
+      <ul>
+                    <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;"><strong>Select Billing Cycle</strong></div>
+          </div>
+        </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="weekend" data-toggle="radio" {% if user.plan == 'weekend' %}checked{% endif %}>
+        <div class="item-inner">
+          <div class="item-title">Monthly</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="weekend-yearly" data-toggle="radio" {% if user.plan == 'weekend-yearly' %}checked{% endif %}>
+        <div class="item-inner">
+          <div class="item-title">Yearly</div>
+        </div>
+      </label>
+    </li>
+          </ul>
+          </div>
+      </div>
+                             </div>
+    <!--weekend-->
+    </div>
+                    <div class="col-100 tablet-33">
+<!--CASUAL-->
+ <div class="card">
+  <div class="card-header" style="background:#E6E6E6">Casual</div>
+  <div class="card-content">
+    <!--CONTENT-->
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><strong>$59/Month</strong></div>
+          </div>
+        </li>
+           <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Monthly</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title"><strong>$590/Year</strong></div>
+          </div>
+        </li>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Annually</span></div>
+          </div>
+        </li>
+        <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;">Saturday Tips</div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+      
+    <!--CONTENT-->
+  </div>
+
+</div>
+                         <div class="card">
+  <div class="card-content">   
+                        <div class="list-block">
+      <ul>
+                    <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;"><strong>Select Billing Cycle</strong></div>
+          </div>
+        </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="casual" data-toggle="radio" {% if user.plan == 'casual' %}checked{% endif %}>
+        <div class="item-inner">
+          <div class="item-title">Monthly</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="casual-yearly" data-toggle="radio" {% if user.plan == 'casual-yearly' %}checked{% endif %}>
+        <div class="item-inner">
+          <div class="item-title">Yearly</div>
+        </div>
+      </label>
+    </li>
+          </ul>
+          </div>
+      </div>
+                             </div>
+    <!--CASUAL-->
+    </div>
+
+               
+                    <div class="col-100 tablet-33">
+    <!--PRO-->
+    <div class="card">
+  <div class="card-header" style="background:#E6E6E6">Professional</div>
+  <div class="card-content">
+    <!--CONTENT-->
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title">{% if user.coupon == 'TRI50' %}<span style="color:#00b057"><strong>$49.50 coupon applied</strong></span>{% else %}$99{% endif %}</div>
+          </div>
+        </li>
+           <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Monthly</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title">{% if user.coupon == 'TRI50' %}$495{% else %}$990{% endif %}</div>
+          </div>
+        </li>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Yearly</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;">Tips Daily</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--CONTENT-->
+  </div>
+
+</div>
+                         <div class="card">
+  <div class="card-content">   
+                        <div class="list-block">
+      <ul>
+                    <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;"><strong>Select Billing Cycle</strong></div>
+          </div>
+        </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="professional" data-toggle="radio" {% if user.plan == 'professional' %}checked{% endif %}>
+        <div class="item-inner">
+          <div class="item-title">Monthly</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="professional-yearly" data-toggle="radio" {% if user.plan == 'professional-yearly' %}checked{% endif %}>
+        <div class="item-inner">
+          <div class="item-title">Yearly</div>
+        </div>
+      </label>
+    </li>
+          </ul>
+          </div>
+      </div>
+                             </div>
+    <!--PRO-->
+    </div>
+                                            
+                        </div>
+        <!---CARDS---------------------------------------->
+        <div class="content-block-title">Billing Details</div>
+<div class="list-block">
+  <ul>
+    <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <div class="item-title label">Card Last 4</div>
+          <div class="item-input">
+            <p>{{user.stripe.last4}}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <!-- Text inputs -->
+    <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <div class="item-title label">Card Number</div>
+          <div class="item-input">
+            <input type="text" name="card-num" id="card-num" placeholder="XXXXXXXXXXXXXXXX">
+          </div>
+        </div>
+      </div>
+    </li>
+          <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <div class="item-title label">Expiration Month</div>
+          <div class="item-input">
+             <input type="tel" name="card-month" id="card-month" placeholder="MM">
+          </div>
+        </div>
+      </div>
+    </li>
+          <li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <div class="item-title label">Expiration Year</div>
+          <div class="item-input">
+             <input id="card-year"  type="tel" size="2" maxlength="2" placeholder="YY">
+          </div>
+        </div>
+      </div>
+    </li>
+<li>
+      <div class="item-content">
+        <div class="item-media"><i class="icon icon-form-name"></i></div>
+        <div class="item-inner">
+          <div class="item-title label">Card CVC</div>
+          <div class="item-input">
+             <input id="card-cvc" type="text" size="3" maxlength="3" placeholder="CVC">
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+         <div id="cardFormError" >
+              
+                <p>{{error}}</p>
+
+            </div>
+<div class="content-block">
+<button type="submit" class="button button-fill color-green">Update Billing</button>
+
+         
+        <!---CARDS---------------------------------------->
+        </form><br>
+{% if user.stripe.last4 %}<a href="#" data-picker=".picker-1" class="open-picker"><button type="submit" class="button button-fill color-red">Downgrade Account</button></a>{% endif %}
+                   
+
+ 
+        </div>
+            <!------------------------------>
+
+                <!-- Picker -->
+  <div class="picker-modal picker-1">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left">Are you Sure?</div>
+        <div class="right"><a href="#" class="close-picker">Cancel</a></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block">
+          <p>Your account will be downgraded to a free account. Your current access will continue until your next billing date. You will not be billed again. You can upgrade at any time.</p>
+               <form action="/user/plan" method="POST" class="form-horizontal">
+           <input type="radio" name="plan" value="notrial" data-toggle="radio" checked hidden>
+     <button type="submit" class="button button-fill color-red button-round">Downgrade Account</button>
+
+    </form>
+      </div>
+    </div>
+  </div>
+        <!------------------------------>     
+               
+                {% include "../partials/flash.html" %}
+    </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+<script type='text/javascript' src='/javascripts/knockout-3.0.0.js'></script> 
+<script src="/javascripts/knockout.mapping-latest.debug.js"></script>
+      <script type='text/javascript' src="/javascripts/ko.datasource.js"></script> 
+      <script src="/javascripts/jquery.csv-0.71.js"></script>
+      <script src="/javascripts/ko.js"></script>
+<style>
+/* A bit of demo styles */;
+.swiper-container {
+  height: 100%;
+}
+.swiper-slide {
+  background:#fff;
+}
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin:20px;
+  font-size:21px;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,148 @@
+<script src="javascripts/dutch.js"></script>
+<!-----PARSER---->
+ <script src="/javascripts/jquery.min.js"></script>
+
+    <!-----------------------CALC---------------------------------->
+<table width="100%" align="center" cellpadding="0" cellspacing="0">
+ <tr> 
+          <td width="516"><form name="form1" id="form1" method="post" action="">
+                <h3 align="center">Dutching calculator</h3>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" id="form2">
+                    <tr> 
+
+    <!-----------------------RACE INFO---------------------------------->
+<td>&nbsp;</td>                   
+<td><p data-bind="text: Time"></p></td>                
+ <td><p data-bind="text: Race"></p></td>
+<td><p data-bind="text: raceno"></p></td>
+                    </tr>                
+<tr> 
+
+    <!-----------------------HEADER---------------------------------->
+<td>&nbsp;</td>                   
+<td>&nbsp;</td>                
+<td><div align="left"><strong>Decimal Odds</strong></div></td>
+<td><div align="left"><strong>Tip Score</strong></div></td>
+                 
+</tr>
+                <tr> 
+                  <td width="23%"><div align="center"><input name="runnum1" type="text" id="runnum1"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                  <td width="23%"><div align="center"><input name="runner1" type="text" id="runner1"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                  <td width="25%"><div align="center"> 
+                      <input name="textfield1" type="text" id="textfield1"  size="10" readonly="TRUE" style='border:0px solid #000000'>
+                    <input type="checkbox" name="checkbox1" id="checkbox1" value="0" checked/></div></td>
+<td width="25%"><div align="center"> 
+                      <input name="tipscore1" type="text" id="tipscore1"  size="10" readonly="TRUE" style='border:0px solid #000000'>
+                    </div></td>
+                  
+                </tr>
+                <tr>  
+                  <td width="23%"><div align="center"><input name="runnum2" type="text" id="runnum2"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                   <td width="23%"><div align="center"><input name="runner2" type="text" id="runner2"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                  <td><div align="center"> 
+                      <input name="textfield2" type="text" size="10"  id="textfield2" readonly="TRUE" style='border:0px solid #000000'>
+                    <input type="checkbox" name="checkbox2" id="checkbox2" value="0" checked/></div></td>
+<td width="25%"><div align="center"> 
+                      <input name="tipscore2" type="text" id="tipscore2"  size="10" readonly="TRUE" style='border:0px solid #000000'>
+                    </div></td>
+                  
+                </tr>
+                <tr>  
+                  <td width="23%"><div align="center"><input name="runnum3" type="text" id="runnum3"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                   <td width="23%"><div align="center"><input name="runner3" type="text" id="runner3"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                  <td><div align="center"> 
+                      <input name="textfield3" type="text" size="10"  id="textfield3" readonly="TRUE" style='border:0px solid #000000'>
+                    <input type="checkbox" name="checkbox3" id="checkbox3" value="0" checked/></div></td>
+<td width="25%"><div align="center"> 
+                      <input name="tipscore3" type="text" id="tipscore3"  size="10" readonly="TRUE" style='border:0px solid #000000'>
+                    </div></td>
+                  
+                </tr>
+                <tr>  
+                  <td width="23%"><div align="center"><input name="runnum4" type="text" id="runnum4"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                   <td width="23%"><div align="center"><input name="runner4" type="text" id="runner4"  size="10" readonly="TRUE" style='border:0px solid #000000'></div></td>
+                  <td><div align="center"> 
+                      <input name="textfield4" type="text" size="10"  id="textfield4" readonly="TRUE" style='border:0px solid #000000'>
+                    <input type="checkbox" name="checkbox5" id="checkbox4" value="0" checked/></div></td>
+<td width="25%"><div align="center"> 
+                      <input name="tipscore4" type="text" id="tipscore4"  size="10" readonly="TRUE" style='border:0px solid #000000'>
+                    </div></td>
+                  
+                </tr>
+               
+              </table> 
+<!----ROW HEADER------------------------------------->   
+<tr>
+ <td><div align="center"><strong>Probability</strong></div></td>
+                  <td> <div align="center"><strong>Stake &dollar;</strong></div></td>
+</tr>
+<!----ROW ONE 1------------------------------------->    
+<tr>                  
+<td width="24%" valign="middle"><div align="center"> 
+                      <p> 
+                        <input name="prob1" type="text" id="prob1"  style='border:0px solid #000000' size="6" readonly="TRUE" oninput="probCalc(1)">
+                      </p>
+                    </div></td>
+                  <td width="28%" valign="middle"> <div align="center"> 
+                      <input name="stake1" type="text" id="stake1"  style='border:0px solid #000000' size="10" readonly="TRUE">
+                    </div></td>
+</tr>
+<!----ROW TWO 2------------------------------------->
+<tr> 
+<td><div align="center"> 
+                      <input name="prob2" type="text" id="prob2"  style='border:0px solid #000000' size="6" readonly="TRUE">
+                    </div></td>
+                  <td><div align="center"> 
+                      <input name="stake2" type="text" id="stake2" style='border:0px solid #000000' size="10" readonly="TRUE">
+                    </div></td>
+</tr>
+<!----ROW THREE 3------------------------------------->
+<tr> 
+<td><div align="center"> 
+                      <input name="prob3" type="text" id="prob3"  style='border:0px solid #000000' size="6" readonly="TRUE">
+                    </div></td>
+                  <td><div align="center"> 
+                      <input name="stake3" type="text" id="stake3" style='border:0px solid #000000' size="10" readonly="TRUE">
+                    </div></td>
+</tr>
+<!----ROW FOUR 4------------------------------------->
+<tr> 
+<td><div align="center"> 
+                      <input name="prob4" type="text" id="prob4"  style='border:0px solid #000000' size="6" readonly="TRUE">
+                    </div></td>
+                  <td><div align="center"> 
+                      <input name="stake4" type="text" id="stake4" style='border:0px solid #000000' size="10" readonly="TRUE">
+                    </div></td>
+</tr>
+<!----FINAL VALUES------------------------------------->               
+              <div align="center"> 
+                      <strong>Overall odds</strong><input name="overallodds" type="text" id="overallodds" oninput="overalloddsCalc()" style='border:0px solid #000000' size="10" readonly="TRUE">
+                    </div>
+ 
+                  
+                 <div align="center">
+                    <strong>Total Stake </strong><input name="totalstake" type="text"  id="totalstake" value="100" size="10" default="100">
+                    </div>
+
+                  
+                  <div align="center"> 
+                      <strong>Return </strong><label>
+                      <input name="returncash" type="text" id="totalstake3" size="10" style='border:0px solid #000000' readonly="TRUE">
+                      </label>
+                    </div>
+
+                  
+                 <div align="center"> 
+                      <strong>Profit </strong><label>
+                      <input name="profit" type="text" id="totalstake4" size="10" style='border:0px solid #000000' readonly="TRUE">
+                      </label>
+                    </div>
+               
+                    
+                    
+                    
+                    
+
+              </form>          </td>
+        </tr>
+      </table>

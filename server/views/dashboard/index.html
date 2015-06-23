@@ -1,0 +1,97 @@
+{% extends '../layouts/dashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<script>window.Intercom('update');</script>
+
+      <!-------------------------------------------REGISTER--------------------------------->
+    {% if user.plan == 'notrial' %}
+
+<!---FREE---->
+{% include "../register/notrial.html" %}
+    {% else %}
+
+<!---NOT FREE---->
+    {% endif %}
+      <!-------------------------------------------REGISTER--------------------------------->
+    {% if user.plan == 'free' %}
+
+<!---FREE---->
+{% include "../membership/pro.html" %}
+    {% else %}
+
+<!---NOT FREE---->
+    {% endif %}
+    
+ <!-------------------------------------------MONTHLY------------------------------->     
+    {% if user.plan == 'casual' %}
+
+<!---CASUAL---->
+{% include "../membership/casual.html" %}
+    {% else %}
+<!---NOT CASUAL---->
+    {% endif %}
+
+    {% if user.plan == 'weekend'  %}
+
+<!---WEEKEND---->
+{% include "../membership/weekend.html" %}
+    {% else %}
+<!---NOT WEEKEND---->
+    {% endif %}
+   
+    {% if user.plan == 'semipro' %}
+
+<!---SEMIPRO---->
+{% include "../membership/semipro.html" %}
+    {% else %}
+<!---NOT SEMIPRO---->
+    {% endif %}
+      
+    {% if user.plan == 'professional' %}
+{% include "../membership/pro.html" %}
+<!---PROFESSIONAL---->
+
+    {% else %}
+<!---NOT PROFESSIONAL---->
+    {% endif %}
+
+<!-------------------------------------------YEARLY--------------------------------->
+         {% if user.plan == 'casual-yearly' %}
+
+<!---CASUAL---->
+{% include "../membership/casual.html" %}
+    {% else %}
+<!---NOT CASUAL---->
+    {% endif %}
+
+    {% if user.plan == 'weekend-yearly'  %}
+
+<!---WEEKEND---->
+{% include "../membership/weekend.html" %}
+    {% else %}
+<!---NOT WEEKEND---->
+    {% endif %}
+   
+    {% if user.plan == 'semipro-yearly' %}
+
+<!---SEMIPRO---->
+{% include "../membership/semipro.html" %}
+    {% else %}
+<!---NOT SEMIPRO---->
+    {% endif %}
+      
+    {% if user.plan == 'professional-yearly' %}
+{% include "../membership/pro.html" %}
+<!---PROFESSIONAL---->
+
+    {% else %}
+<!---NOT PROFESSIONAL---->
+    {% endif %}
+
+    
+        <!-- JS -->
+
+{% endblock %}

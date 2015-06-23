@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Members | MyTippingApp</title>
+    <meta name="description" content="">
+          <!--MOBILE-->
+    <meta name="apple-mobile-web-app-title" content="MyTippingApp" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="cleartype" content="on">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+
+ 
+
+        <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="/stylesheets/framework7.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="/stylesheets/my-app.css">
+      <link rel="stylesheet" href="/stylesheets/framework7.3dpanels.css">
+          <script src="/javascripts/jquery.min.js"></script>
+      
+            <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+       <!----------INTERCOM.IO----------------->
+      <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/gou9n4i8';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+      <script>window.Intercom('boot', {
+  app_id: "gou9n4i8",
+  // TODO: The current logged in user's full name
+  name: "{{user.fname}} {{user.lname}}",
+  // TODO: The current logged in user's email address.
+  email: "{{user.email}}",
+  // TODO: The current logged in user's sign-up date as a Unix timestamp.
+  created_at: "{{user.time}}",
+    widget: {
+      activator: '#Intercom'
+   }  
+});
+     
+
+  </script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+ 
+<style>.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('../img/page-loader.gif') 50% 50% no-repeat rgb(239,240,240);
+}
+    .android-4 .accordion-item-content {
+    min-height: 1px;
+}
+    </style>
+             
+<div class="loader"></div>
+ <script type="text/javascript">
+$(window).load(function() {
+	$(".loader").fadeOut("slow");
+})
+</script>
+<script>window.Intercom('update');</script>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------OLD STUFF----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+  
+<!------------NAVBAR------------------>
+ 
+<div class="statusbar-overlay"></div>
+
+ 
+<div class="views">
+ 
+ 
+<div class="panel-overlay"></div>
+ 
+<div class="panel panel-left panel-cover">
+ 
+<div class="view view-left navbar-through">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="left"></div>
+<div class="center sliding">Main Menu</div>
+<div class="right"></div>
+</div>
+</div>
+<div class="pages">
+<div data-page="index-left" class="page">
+<div class="page-content">
+<div class="list-block">
+<ul>
+<li><a href="/dashboard" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Tips</div>
+</div></a></li>
+
+<li><a id="Intercom" href="mailto:gou9n4i8@incoming.intercom.io" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Support</div>
+</div></a></li>
+<li><a href="/billing" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Billing</div>
+</div></a></li>
+<li><a href="/logout" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Logout</div>
+</div></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!----------------------NAVBAR END-------------------->
+
+
+    <!-- Views, and they are tabs-->
+
+    <div class="views tabs toolbar-through">
+      <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+      <div id="view-1" class="view view-main tab active">
+                  <div class="navbar">
+          <div class="navbar-inner">
+              <div class="left">
+            <a href="#" data-panel="left" class="open-panel link icon-only" >
+                <i class="icon icon-bars"></i>
+            </a>
+             </div>
+            <div class="center sliding">Past Results</div>
+              <div class="right"><img src="/img/brand.png"/></div>
+          </div>
+        </div>
+        <!-- Pages-->
+        <div class="pages navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+<!-----------------TIPS-------------------------------------->
+                <div class="content-block">
+<div class="list-block">
+  <ul>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-input">
+            <input type="text" placeholder="Click here to Select Date" readonly id="calendar-default">
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+                 <script>var today = new Date();
+var dd = today.getDate()-1;
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = yyyy + '-' + mm + '-' + dd
+document.getElementById('calendar-default').setAttribute("max", today);
+document.getElementById('calendar-default').setAttribute("min", "2015-01-05");</script>
+            <div  data-bind="foreach: arrayoftipH" id="section1" >
+                
+
+<div class="list list-inset">
+      <div class="item item-divider row" style="background-color: #333;">
+                  <div class="col-30" id="racename">
+              <h3 style="color:#fff;padding-left:10px;" data-bind="text: Race" ></h3></div>
+                      <div class="col-15" id="raceno" align="left">
+              <h5 style="color:#fff" align="left" >Race: <span data-bind="text: raceno"></span></h5></div>
+          <div class="col-30" id="Time" align="center">
+              <h4 style="color:#fff" align="center" >Start Time: <span data-bind="text: Time"></span></h4></div>
+          <div class="col-15" id="code1" align="right">
+              <h5 style="color:#fff;padding-right:10px;" data-bind="text: code1" align="right" ></h5></div>
+              
+              </div>
+    <div class="item" style="background-color: #00b057;height:40px;padding-top:1px;">
+        <div class="row">
+            <div class="col-10">
+     <p style="color:#fff;text-align:left;font-size:11px;padding-left:15px;">No.</p>
+            </div>
+            <div class="col-40 item-text-wrap">
+      <p style="color:#fff;text-align:left;font-size:11px;" >Selection</p>
+            </div>
+            <div class="col-20">
+      <p style="color:#fff;text-align:center;font-size:11px;">Placing</p>
+            </div>
+            <div class="col-15">
+                        <div>
+      <p style="color:#fff;text-align:right;font-size:11px;" >Final Win</p>
+                            </div>
+                </div>
+                <div class="col-15">
+                <div>
+      <p style="color:#fff;text-align:right;font-size:11px;padding-right:10px;">Final Plc</p>
+                            </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-color: #00b057;height:40px;padding-top:1px;">
+        <div class="row">
+            <div class="col-10">
+     <p style="color:#fff;text-align:left;font-size:11px;padding-left:15px;" data-bind="text: run1num"></p>
+            </div>
+            <div class="col-40 item-text-wrap">
+      <p style="color:#fff;text-align:left;font-size:11px;" data-bind="text: run1name"></p>
+            </div>
+            <div class="col-20">
+      <p style="color:#fff;text-align:center;font-size:11px;" data-bind="text: run1score"></p>
+            </div>
+            <div class="col-15">
+                        <div data-bind="if: run1score() === '1st'">
+      <p style="color:#fff;text-align:right;font-size:11px;" data-bind="text: run1price1"></p>
+                            </div>
+                </div>
+                <div class="col-15">
+                <div data-bind="ifnot: run1score() === '--'">
+      <p style="color:#fff;text-align:right;font-size:11px;padding-right:10px;" data-bind="text: run1price2"></p>
+                            </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-color: #00b057;height:40px;padding-top:1px;">
+        <div class="row">
+            <div class="col-10">
+     <p style="color:#fff;text-align:left;font-size:11px;padding-left:15px;" data-bind="text: run2num"></p>
+            </div>
+            <div class="col-40 item-text-wrap">
+      <p style="color:#fff;text-align:left;font-size:11px;" data-bind="text: run2name"></p>
+            </div>
+            <div class="col-20">
+      <p style="color:#fff;text-align:center;font-size:11px;" data-bind="text: run2score"></p>
+            </div>
+            <div class="col-15">
+                <div data-bind="if: run2score() === '1st'">
+      <p style="color:#fff;text-align:right;font-size:11px;" data-bind="text: run2price1"></p>
+            </div>
+                </div>
+                <div class="col-15">
+                <div data-bind="ifnot: run2score() === '--'">
+      <p style="color:#fff;text-align:right;font-size:11px;padding-right:10px;" data-bind="text: run2price2"></p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-color: #00b057;height:40px;padding-top:1px;">
+        <div class="row">
+            <div class="col-10">
+     <p style="color:#fff;text-align:left;font-size:11px;padding-left:15px;" data-bind="text: run3num"></p>
+            </div>
+            <div class="col-40 item-text-wrap">
+      <p style="color:#fff;text-align:left;font-size:11px;" data-bind="text: run3name"></p>
+            </div>
+            <div class="col-20">
+      <p style="color:#fff;text-align:center;font-size:11px;" data-bind="text: run3score"></p>
+            </div>
+            <div class="col-15">
+                <div data-bind="if: run3score() === '1st'">
+      <p style="color:#fff;text-align:right;font-size:11px;" data-bind="text: run3price1"></p>
+            </div>
+                </div>
+                <div class="col-15">
+                <div data-bind="ifnot: run3score() === '--'">
+      <p style="color:#fff;text-align:right;font-size:11px;padding-right:10px;" data-bind="text: run3price2"></p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-color: #00b057;height:40px;padding-top:1px;">
+        <div class="row">
+            <div class="col-10">
+     <p style="color:#fff;text-align:left;font-size:11px;padding-left:15px;" data-bind="text: run4num"></p>
+            </div>
+            <div class="col-40 item-text-wrap">
+      <p style="color:#fff;text-align:left;font-size:11px;" data-bind="text: run4name"></p>
+            </div>
+            <div class="col-20">
+      <p style="color:#fff;text-align:center;font-size:11px;" data-bind="text: run4score"></p>
+            </div>
+            <div class="col-15">
+                <div data-bind="if: run4score() === '1st'">
+      <p style="color:#fff;text-align:right;font-size:11px;" data-bind="text: run4price1"></p>
+            </div>
+                </div>
+                <div class="col-15">
+                <div data-bind="ifnot: run4score() === '--'">
+      <p style="color:#fff;text-align:right;font-size:11px;padding-right:10px;" data-bind="text: run4price2"></p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>  <br>
+             </div>
+<script type='text/javascript' src='/javascripts/knockout-3.0.0.js'></script> 
+<script src="/javascripts/knockout.mapping-latest.debug.js"></script>
+      <script type='text/javascript' src="/javascripts/ko.datasource.js"></script> 
+      <script src="/javascripts/jquery.csv-0.71.js"></script>
+            <script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+
+function tipview() {
+      var self = this;
+      this.arrayoftipH = ko.mapping.fromJS([]);
+       this.successfromajaxtipH = function(data) {
+        var arrayH = $.map(data, function(value, index) {
+            return [value];
+        });
+console.log(arrayH);
+        ko.mapping.fromJS(arrayH, {}, self.arrayoftipH);  
+    };
+  self.UpdateMappings = function(){
+      $('#calendar-default').on('change', function(e){
+  var txtAval=$(this).val();
+  var dater = txtAval.replace(/-/g, "");
+    $.ajax({
+    type: "GET",
+    url: 'http://tips.mytippingapp.com/iqprotips/' + dater + 'iqtp.csv',
+    context: this,
+    success: function(data) { 
+        dat3 = $.csv.toObjects(data);
+        self.successfromajaxtipH(dat3);
+         },
+            dataType: "text",
+   });
+          });
+    };      
+}
+
+var viewHModel = new tipview();
+setTimeout(viewHModel.UpdateMappings, (10 * 100));
+    
+ko.applyBindings(viewHModel);
+setInterval(viewHModel.UpdateMappings, (10 * 5000));
+
+
+
+
+
+
+
+
+
+
+  var ErrorHandlingBindingProvider = function() {
+    var original = new ko.bindingProvider(); 
+
+    //determine if an element has any bindings
+    this.nodeHasBindings = original.nodeHasBindings;
+
+    //return the bindings given a node and the bindingContext
+    this.getBindingAccessors = function(node, bindingContext) {
+        var result = {};
+        
+        //catch general errors parsing binding syntax
+        try {
+            result = original.getBindingAccessors(node, bindingContext);
+        }
+        catch (e) {
+            if (console && console.log) {
+                console.log("Error in binding syntax: " + e.message, node);   
+            }
+        }
+        
+        //catch errors when actually evaluating the value of a binding
+        ko.utils.objectForEach(result, function (key, value) {
+            result[key] = function() {
+                var result = null;
+
+                try {
+                    result = value();  
+                }
+                catch (e) {
+                    if (console && console.log) {
+                        console.log("Error in \"" + key + "\" binding: " + e.message, node);   
+                    }
+                }
+                
+                return result;
+            };
+        });
+
+        return result;
+    };
+};
+
+ko.bindingProvider.instance = new ErrorHandlingBindingProvider();
+
+        
+});
+//]]>  
+
+</script>
+ <script type="text/javascript">
+$(window).load(function() {
+	$(".loader").fadeOut("slow");
+})
+</script>
+                <!-----------------TIPS-------------------------------------->
+    
+<script src="/javascripts/dutch/dutch.js"></script>
+<script src="/javascripts/dutch/dutch1.js"></script>
+<script src="/javascripts/dutch/dutch2.js"></script>
+<script src="/javascripts/dutch/dutch3.js"></script>
+<script src="/javascripts/dutch/dutch4.js"></script>
+<script src="/javascripts/dutch/dutch5.js"></script>
+<script src="/javascripts/dutch/dutch6.js"></script>
+<script src="/javascripts/dutch/dutch7.js"></script>
+<script src="/javascripts/dutch/dutch8.js"></script>
+<script src="/javascripts/dutch/dutch9.js"></script>
+<script src="/javascripts/dutch/dutch10.js"></script>
+<script src="/javascripts/dutch/dutch11.js"></script>
+<script src="/javascripts/dutch/dutch12.js"></script>
+<script src="/javascripts/dutch/dutch13.js"></script>
+<script src="/javascripts/dutch/dutch14.js"></script>
+<script src="/javascripts/dutch/dutch15.js"></script>
+<script src="/javascripts/dutch/dutch16.js"></script>
+
+<script type='text/javascript' src='/javascripts/knockout-old.js'></script> 
+<script src="/javascripts/knockout.mapping-latest.debug.js"></script>
+      <script type='text/javascript' src="/javascripts/ko.datasource.js"></script> 
+      <script src="/javascripts/jquery.csv-0.71.js"></script>
+
+<style>
+/* A bit of demo styles */;
+.swiper-container {
+  height: 100%;
+}
+.swiper-slide {
+  background:#fff;
+}
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin:20px;
+  font-size:21px;
+}
+</style>
+ <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+     ga('create', '{{googleAnalytics}}');
+     ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+      Stripe.setPublishableKey('{{stripePubKey}}');
+    </script>
+
+    <script src="/javascripts/app.js"></script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="/javascripts/framework7.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="/javascripts/my-app.js"></script>
+   <script src="/javascripts/framework7.3dpanels.js"></script>
+
+</body>
+</html>
+
+
+ 

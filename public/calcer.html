@@ -1,0 +1,109 @@
+{% extends '../layouts/dashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+  <div class="container-fluid container-max">
+
+    {% if user.stripe.plan == 'free' %}
+
+<!---FREE---->
+
+    {% else %}
+<!---NOT FREE---->
+    {% endif %}
+
+    {% if user.stripe.plan == 'casual' %}
+
+<!---CASUAL---->
+
+    {% else %}
+<!---NOT CASUAL---->
+    {% endif %}
+
+    {% if user.stripe.plan == 'weekend' %}
+
+<!---WEEKEND---->
+
+
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		<h1>HOME</h1>
+<!-----------START MENU------------------->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<a class="circle-button blue" href="#secondPage">
+  <span class="small-cap single-line">Tips</span>
+  <span class="large-cap">Tips</span>
+  <span class="bg"></span>
+</a>
+<a class="circle-button purple" href="#3rdPage">
+  <span class="small-cap single-line">Chat</span>
+  <span class="large-cap">Cha</span>
+  <span class="bg"></span>
+</a>
+<a class="circle-button green" href="#4thpage">
+  <span class="small-cap single-line">Glossary</span>
+  <span class="large-cap">Glos</span>
+  <span class="bg"></span>
+</a>
+<!---------END MENU
+<ul id="menu">
+	<li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+</ul>----------->
+		</div>
+	<div class="section" id="section1" >
+	    
+	  
+	</div>
+	<div class="section" id="section2">
+		<div class="intro">
+			<h1>Chat</h1>
+			<p>      Enter Message and press enter <div><input id=input placeholder=you-chat-here /></div> <div id=box></div>   <script src=http://cdn.pubnub.com/pubnub.min.js></script> <script>(function(){ var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'chat'; PUBNUB.subscribe({ channel : channel, callback : function(text) { box.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + box.innerHTML } }); PUBNUB.bind( 'keyup', input, function(e) { (e.keyCode || e.charCode) === 13 && PUBNUB.publish({ channel : channel, message : input.value, x : (input.value='') }) } ) })()</script> </p>
+			
+		</div>
+	</div>
+	<div class="section" id="section3">
+		<div class="intro">
+			<h1>Glossary</h1>
+			<p>
+			</p>
+		</div>
+		
+	</div>
+</div>
+    {% else %}
+<!---NOT WEEKEND---->
+    {% endif %}
+
+    {% if user.stripe.plan == 'professional' %}
+
+<!---PROFESSIONAL---->
+
+    {% else %}
+<!---NOT PROFESSIONAL---->
+    {% endif %}
+
+    <div class="well">
+
+    </div>
+  </div>
+</div>
+<!--PAGES -->
+	<script type="text/javascript" src="/javascripts/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="/javascripts/examples.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/examples.css" />
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#fbfbfb', '#e8e8e8', '#fbfbfb', '#e8e8e8', '#fbfbfb'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+				menu: '#menu'
+			});
+
+		});
+	</script>
+{% endblock %}

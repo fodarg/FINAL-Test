@@ -1,0 +1,742 @@
+{% extends 'layouts/application.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}	
+		<!--
+		=================================
+		PRELOADER
+		=================================
+		-->
+		<div id="preloader" class="preloader">
+			<div class="preloader-inner">
+				<span class="preloader-logo">
+					<img src="images/logos/preloader-logo.png" alt="MyTippingApp" />
+					<strong>Loading</strong>
+				</span>
+			</div>
+		</div>
+
+		<div id="document" class="document">
+
+
+
+			<!--
+			=================================
+			HEADER
+			=================================
+			-->
+			<header class="header-section navbar navbar-fixed-top navbar-default header-floating">
+				<div class="container">
+
+					<div class="navbar-header">
+
+						<!-- RESPONSIVE MENU BUTTON -->
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+						<!-- NAVBAR LOGO -->
+						<a class="navbar-brand navbar-logo" href="#home"><img src="images/logos/navbar-logo.png" alt="MyTippingApp" /></a>
+					</div>
+
+					<div id="navigation" class="navbar-collapse collapse">
+						
+						<!-- NAVIGATION LINKS -->
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#home">Home</a></li>
+							<li><a href="#features">Features</a></li>
+							<li><a href="#pricing">Pricing</a></li>
+                            <li><a href="/www/tipresult.html">Results</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+						</ul>
+
+					</div>
+
+				</div>
+			</header>
+
+			<!--
+			=================================
+			HERO SECTION
+			=================================
+			-->
+			<section id="home" class="hero-section hero-layout-3 section section-inverse-color parallax-background" data-stellar-background-ratio="0.4">
+
+				<!-- VIDEO BACKGROUND -->
+				<div class="video-background-container parallax" data-stellar-ratio="0.4">
+					<video preload="auto" autoplay loop muted class="video-background">
+						<source type="video/mp4" src="videos/video-bg.mp4" />
+						<source type="video/ogg" src="videos/video-bg.ogv" />
+						<source type="video/webm" src="videos/video-bg.webm" />
+					</video>
+				</div>
+
+				<!-- BACKGROUND OVERLAY -->
+				<div class="black-dot-background-overlay"></div>
+
+				<div class="container">
+
+					<div class="hero-content">
+                        <div class="row">
+<div class="col-sm-6">
+						<!-- HERO TEXT -->
+						<div class="hero-text wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+							
+							<!-- LOGO -->
+							<img src="images/logos/hero-logo.png" alt="MyTippingApp" class="hero-logo" />
+
+							<!-- TAGLINE -->
+							<h1 class="hero-title">Delivering everything <strong>you need to become</strong> a successful punter.</h1>
+
+							<!-- HERO DESCRIPTION -->
+							
+                             <ul style="font-size:16px; color:#fff; list-style:none;">
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> Great Tips</li>
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> Live Prices</li>
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> Useful Calculators</li>
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> In App Support</li>
+				</ul>
+                            <p class="hero-description">Why try and do it all yourself, save hours of form analysis by letting our technology to do all of the work and find the winners for you?</p>
+							<!-- DOWNLOAD BUTTONS -->
+							<p class="download-buttons">
+
+								<!-- PLAY STORE DOWNLOAD -->
+								<a href="#please-edit-this-link" class="btn btn-app-download btn-primary">
+									<i class="fa fa-android"></i>
+									<strong>Download App</strong> <span>for Android</span>
+								</a>
+								<!-- WINDOWS PHONE STORE DOWNLOAD -->
+								<!--<a href="#please-edit-this-link" class="btn btn-app-download btn-windows-phone">
+									<i class="fa fa-windows"></i>
+									<strong>Download App</strong> <span>from Windows Store</span>
+								</a>-->
+							</p>
+
+						</div>
+</div>
+						<!-- HERO IMAGES -->
+                        <div class="col-sm-6">
+						<div class="hero-images">
+               <div class="well wow fadeInRight" alt="" data-wow-duration="1s" data-wow-delay="0.5s" style="max-width:400px;">
+              <form action="/signup" method="POST" id="sign">
+                  <h2 style="color:#333"><span>FREE 14 DAY TRIAL</span></h2>
+                  <p style="font-size:12px;color:#5CB85C;text-align:center;margin-bottom: 0px;">professional package valued at $99 per month<br><span style="color:#333;font-size:16px;">Includes tips every day.</span></p>
+                  
+
+       <div class="row">
+           <div class="form-group">
+               
+                 <div class="col-sm-6">
+                      <div class="input-group">
+          <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{form.fname}}" autofocus>
+                          </div>
+                                                                                                              </div>
+                <div class="col-sm-6">
+                     <div class="input-group">
+          <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{form.lname}}" autofocus>
+                         </div>
+                  </div>
+        </div>       
+        </div> 
+                  
+       <div class="row" style="padding-top:10px;">
+                 <div class="col-sm-12">
+                      
+          <input type="text" name="email" class="form-control" placeholder="Email address" value="{{form.email}}" autofocus>
+                          
+                </div>
+        </div> 
+                  <div class="row" style="padding-top:10px;">
+                 <div class="col-sm-12">
+                      
+          <input type="password" name="password" class="form-control" placeholder="Password">
+                          
+         </div>
+        </div> 
+                  <div class="row" style="padding-top:10px;">
+                 <div class="col-sm-12">
+                     <h3 style="color:#333333">Do you have a coupon?</h3>
+<input type="radio" id="radio1" name="radios" value="radio1" >
+   <label for="radio1" style="color:#333">Yes</label>
+         
+<input type="radio" id="radio2" name="radios"value="radio2" checked>
+   <label for="radio2" style="color:#333">No</label>
+                     
+                     <input id="plan" type="hidden" name="plan" class="form-control" placeholder="" value="free" >
+                     <div id="couponl">
+                         <p style="color:#333333;font-size:12px;">If you received a VIP coupon enter it below:</p>
+          <input id="coupon" type="text" name="coupon" class="form-control" placeholder="Enter your VIP coupon code here" value="none" onfocus="{ this.value = ''; }">   <input type="hidden" name="pap_custom" value="" id="pap_tdx8v2s5a" />
+
+<script id="pap_x2s6df8d" src="http://mytippingapp.postaffiliatepro.com/scripts/salejs.php" type="text/javascript">
+</script>
+<script type="text/javascript">
+  PostAffTracker.writeCookieToCustomField('pap_tdx8v2s5a');
+</script>
+                         </div>
+                     </div>
+        </div> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up »</button>
+      </form>
+                       {% include "../views/partials/flash.html" %}
+                   <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+                   <script>
+                       var radios = document.getElementsByName("radios");
+var couponl =  document.getElementById("couponl");
+couponl.style.display = 'none';   // hide
+for(var i = 0; i < radios.length; i++) {
+    radios[i].onclick = function() {
+        var val = this.value;
+        if(val == 'radio1'){
+            couponl.style.display = 'block';
+        }
+        else if(val == 'radio2'){
+             couponl.style.display = 'none';
+        }    
+            
+    }
+}</script>
+                   <script>
+                   $(function() {
+  $('input#coupon').on("blur", function() {
+    if ($(this).val() == "") {
+      $(this).val(this.defaultValue);
+    }
+  }); 
+  
+  // help older browsers support placeholder
+  if (!placeholderIsSupported) {
+    $('#coupon1')
+    .val($('#coupon1').attr("placeholder"))
+    .on("blur", function() {
+      if ($(this).val() == "") {
+        $(this).val($(this).attr("placeholder"));
+      }
+    })
+    .on("focus",function() {
+        if ($(this).val()==$(this).attr("placeholder")) $(this).val("");
+    });
+  }  
+}); 
+
+function placeholderIsSupported() {
+ var test = document.createElement('input');
+ return ('placeholder' in test);
+}</script>
+
+                   </div>
+
+</div>
+						</div>
+					</div>
+</div>
+				</div>
+			</section>
+
+			<!--
+			=================================
+			FEATURES SECTION
+			=================================
+			-->
+			<section id="features" class="features-section section">
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Features</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s">Offering the features you need to make the most of the our best racing tips.</p>
+						</div>
+					</div>
+
+					<div class="featuers-list-wrapper row">
+
+						<!-- FEATURES LEFT -->
+						<div class="col-md-4 col-sm-6">
+							<ul class="features-list features-list-left wow fadeInLeft" data-wow-duration="1s">
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/tips.png" width="100px"/>
+									<h5>Daily Tips</h5>
+									<p>Our best selections delivered every day.</p>
+								</li>
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/priceupdate.png" width="100px"/>
+									<h5>Live Prices</h5>
+									<p>Live prices updated every minute.</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- FEATURES RIGHT -->
+						<div class="col-md-4 col-md-push-4 col-sm-6">
+							<ul class="features-list features-list-right wow fadeInRight" data-wow-duration="1s">
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/calc.png" width="100px"/>
+									<h5>Staking Calculator</h5>
+									<p>Bet like an expert.</p>
+								</li>
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/chat.png" width="100px"/>
+									<h5>In-App Support</h5>
+									<p>Get support when you need it.</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- CLOSE UP PHONE IMAGE -->
+						<div class="col-md-4 col-md-pull-4 text-center">
+							<img src="images/contents/features-phone.png" class="features-image wow fadeInUp" alt="" data-wow-duration="1s" />
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+
+			<!--
+			=================================
+			FEATURES WITH ICONS SECTION
+			=================================
+			-->
+			<section id="features-icons" class="features-icons-section section">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-8 col-md-push-4">
+
+							<!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">Daily Tips</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">MyTippingApp is a next generation tipping service that scans the Internet for similarities in trusted tipsters suggestions and ranks them. The software then applies our unique algorithm to drill down even further eliminating the high-risk races. The software looks at the horse’s recent form by combining track data relating to Distance, Weight, Jockey, Recent wins, Barrier position and speed maps.</p>
+                            <!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">Live Prices</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">Well we have thought about that as well. MyTippingApp access live pricing data from the QLD TAB and updates every 5 seconds ensuring you have the best information.</p>
+						</div>
+
+						<!-- PHONE IMAGE -->
+						<div class="col-md-4 col-md-pull-8 text-center">
+							<img width="200px;" src="images/contents/features-icons-phone.png" class="features-icons-image wow fadeInLeft" alt="" data-wow-duration="1s" />
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			
+			<!--
+			=================================
+			DESCRIPTION1 SECTION
+			=================================
+			-->
+			<section id="description" class="description-section section">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-7">
+
+							
+<!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">Staking Calculator</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">It is well known in racing that level staking is not the most effective way to create long term success. So therefore we have included a Staking Calculator. The calculator will ask you whether you are aiming at making a total cash return for the race or a % return on investment. The Calculator will them tell you how much to put on each runner. If you can’t achieve your goal or a cash return or % return the app will tell you that as well.
+<br><br>
+What about prices I hear you say. Do I need to manually put them in? Nope we have thought of that as well.</p>
+                            <!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">In App Support</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">The answers to all the questions on MyTippingApp are included inside the app itself. If you cannot find an answer to your question you can easily submit a question direct to support to receive a personalised answer.</p>
+						</div>
+
+						<!-- PHONE IMAGE -->
+						<div class="col-md-5 text-center">
+
+							<img width="200px;" src="images/contents/description-phone-back.png" class="description-image phone-image-double phone-image-left wow fadeInRight" alt="" data-wow-duration="1s" data-wow-delay="0.5s" />
+							<img width="200px;" src="images/contents/description-phone-front.png" class="description-image phone-image-double phone-image-right phone-image-front wow fadeInRight" alt="" data-wow-duration="1s" data-wow-delay="1.5s" />
+
+						</div>
+					</div>
+
+				</div>
+			</section>
+            <!--
+			=================================
+			TESTi SECTION
+			=================================
+			-->
+			<section id="subscribe" class="subscribe-section section section-inverse-color parallax-background" data-stellar-background-ratio="0.4">
+
+				<!-- BACKGROUND OVERLAY -->
+				<div class="black-background-overlay"></div>
+
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Testimonial</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s"><i>Testimonial from a user?</i><br>John Doe</p>
+                          
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+
+		
+			<!--
+			=================================
+			PRICING SECTION
+			=================================
+			-->
+			<section id="pricing" class="pricing-section section">
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Affordable Packages</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s">We offer a number of packages for every kind of user.</p>
+						</div>
+					</div>
+                    <style>.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display: inline;     /* for IE7*/
+    *zoom:1;              /* for IE7*/
+
+}
+
+.nav-tabs {
+    text-align:center;
+}
+</style>
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#monthly" aria-controls="monthly" role="tab" data-toggle="tab">Monthly</a></li>
+    <li role="presentation"><a href="#yearly" aria-controls="yearly" role="tab" data-toggle="tab">Yearly</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="monthly">
+    <!-- PRICING TABLE -->
+					<ul class="pricing-table row">
+
+						<!-- PRICING PACKAGE 1 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Weekend</h4>
+									<p>Billed Monthly</p>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">39</span>
+										<span class="price-period">forever</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+									
+								</ul>
+                                <span style="font-size:18px;">Tips Saturday</span>
+							</div>
+						</li>
+
+						<!-- PRICING PACKAGE 2 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package pricing-package-featured">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Pro <span class="label label-warning">Popular</span></h4>
+									<p>Billed Monthly</p>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">99</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+								
+								</ul>
+                                <span style="font-size:18px;">Tips 7 Days</span>
+							</div>
+						</li>
+
+						<!-- PRICING PACKAGE 3 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Casual</h4>
+									<p>Billed Monthly</p>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">59</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+									
+								</ul>
+                                <span style="font-size:18px;">Tips Saturday &amp; Wednesday</span>
+							</div>
+						</li>
+					</ul>
+      
+    </div>
+    <div role="tabpanel" class="tab-pane" id="yearly">
+    <!-- PRICING TABLE -->
+										<ul class="pricing-table row">
+
+						<!-- PRICING PACKAGE 1 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Weekend</h4>
+									<p>Billed Monthly</p>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">390</span>
+										<span class="price-period">forever</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+									
+								</ul>
+                                <span style="font-size:18px;">Tips Saturday</span>
+							</div>
+						</li>
+
+						<!-- PRICING PACKAGE 2 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package pricing-package-featured">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Pro <span class="label label-warning">Popular</span></h4>
+									<p>Billed Monthly</p>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">990</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+									
+								</ul>
+                                <span style="font-size:18px;">Tips 7 Days</span>
+							</div>
+						</li>
+
+						<!-- PRICING PACKAGE 3 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Casual</h4>
+									<p>Billed Monthly</p>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">590</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+									
+								</ul>
+                                <span style="font-size:18px;">Tips Saturday &amp; Wednesday</span>
+							</div>
+						</li>
+					</ul>  
+    </div>
+    
+  </div>
+
+</div>
+					
+
+				</div>
+			</section>
+
+
+			<!--
+			=================================
+			DOWNLOAD SECTION
+			=================================
+			-->
+			<section id="subscribe" class="subscribe-section section section-inverse-color parallax-background" data-stellar-background-ratio="0.4">
+
+				<!-- BACKGROUND OVERLAY -->
+				<div class="black-background-overlay"></div>
+
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Download Android App</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s">Click the Button Below while on your Android to Download</p>
+                            <!-- DOWNLOAD BUTTONS -->
+					<p class="download-buttons wow fadeIn" data-wow-duration="1s">
+
+						<!-- PLAY STORE DOWNLOAD -->
+								<a href="#please-edit-this-link" class="btn btn-app-download btn-primary">
+									<i class="fa fa-android"></i>
+									<strong>Download App</strong> <span>for Android</span>
+								</a>
+						<!-- WINDOWS PHONE STORE DOWNLOAD -->
+						<!--<a href="#please-edit-this-link" class="btn btn-app-download btn-windows-phone">
+							<i class="fa fa-windows"></i>
+							<strong>Download App</strong> <span>from Windows Store</span>
+						</a>-->
+					</p>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!--
+			=================================
+			CONTACT SECTION
+			=================================
+			-->
+			<section id="contact" class="contact-section section collapse">
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Get in Touch</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="animated wow fadeIn" data-wow-duration="1s">Have feedback, suggestion, or any thought about our app? Feel free to contact us anytime, we will get back to you in 24 hours.</p>
+
+						</div>
+					</div>
+
+					<!-- CONTACT FORM -->
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<form action="modules/send-email.php" method="post" id="contact-form" class="contact-form wow fadeInUp" data-wow-duration="1s" role="form">
+								<div class="form-validation alert"><!-- Validation Message here --></div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="name" placeholder="Your Name" autocomplete="off">
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" name="email" placeholder="Your Email Address" autocomplete="off">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="subject" placeholder="Subject" autocomplete="off">
+								</div>
+								<div class="form-group">
+									<textarea rows="4" class="form-control" name="message" placeholder="Message"></textarea>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary btn-block" data-loading-text="Loading...">Send Message</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!--
+			=================================
+			FOOTER SECTION
+			=================================
+			-->
+			<footer class="footer-section section">
+
+				<!-- CONTACT SECTION TOGGLE -->
+				<a href="#contact" class="contact-toggle" data-toggle="collapse"><i class="icon-envelope"></i></a>
+
+				<div class="container">
+
+					
+
+					<!-- SOCIAL MEDIA LINKS -->
+					<ul class="social-media-links wow fadeIn" data-wow-duration="1s">
+						<li><a href="http://facebook.com"><i class="fa fa-facebook"></i><span class="sr-only">Facebook</span></a>
+						<li><a href="http://twitter.com"><i class="fa fa-twitter"></i><span class="sr-only">Twitter</span></a>
+						<li><a href="#"><i class="fa fa-envelope"></i><span class="sr-only">Email</span></a>
+					</ul>
+
+					<!-- COPYRIGHT -->
+					<div class="copyright">Copyright &copy; MyTippingApp, All rights reserved</div>
+				</div>
+			</footer>
+
+		</div>
+        <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+                       <form accept-charset="UTF-8" action="/login" method="POST" role="form">
+                           <div class="input-group">
+  <span class="input-group-addon" id="username">@</span>
+  <input type="text" class="form-control" placeholder="Email" aria-describedby="username" id="email" name="email" value="{{form.email}}" autofocus>
+</div>
+                           <div class="input-group">
+  <span class="input-group-addon" id="pw">PW</span>
+		<input type="password" placeholder="Password" name="password" class="form-control" aria-describedby="pw">	
+</div>
+			 <div class="input-group">
+			<input type="submit" value="Login" class="btn btn-lg btn-primary btn-block"><a style="color:#43B554" href="/forgot"> Forgot</a>
+                 </div>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+		<!--
+		=================================
+		JAVASCRIPTS
+		=================================
+		-->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="js/smoothscroll.min.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/jquery.nav.min.js"></script>
+		<script src="js/nivo-lightbox.min.js"></script>
+		<script src="js/jquery.stellar.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/script.js"></script>
+{% endblock %}

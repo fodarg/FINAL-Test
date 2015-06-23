@@ -1,0 +1,82 @@
+{% extends '../layouts/dashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+      <script>window.Intercom('update');</script>
+   <!-------------------------------------------REGISTER--------------------------------->
+    {% if user.plan == 'notrial' %}
+
+<!---FREE---->
+{% include "../bill/biller.html" %}
+    {% else %}
+
+<!---NOT FREE---->
+    {% endif %}
+    
+    {% if user.plan == 'free' %}
+
+<!---FREE---->
+{% include "../bill/biller.html" %}
+    {% else %}
+
+<!---NOT FREE---->
+    {% endif %}
+ <!-------------------------------------------MONTHLY------------------------------->     
+    {% if user.plan == 'casual' %}
+
+<!---CASUAL---->
+{% include "../bill/biller.html" %}
+    {% else %}
+<!---NOT CASUAL---->
+    {% endif %}
+
+    {% if user.plan == 'weekend'  %}
+
+<!---WEEKEND---->
+{% include "../bill/biller.html" %}
+    {% else %}
+<!---NOT WEEKEND---->
+    {% endif %}
+   
+   
+      
+    {% if user.plan == 'professional' %}
+{% include "../bill/biller.html" %}
+<!---PROFESSIONAL---->
+
+    {% else %}
+<!---NOT PROFESSIONAL---->
+    {% endif %}
+
+<!-------------------------------------------YEARLY--------------------------------->
+         {% if user.plan == 'casual-yearly' %}
+
+<!---CASUAL---->
+{% include "../bill/biller.html" %}
+    {% else %}
+<!---NOT CASUAL---->
+    {% endif %}
+
+    {% if user.plan == 'weekend-yearly'  %}
+
+<!---WEEKEND---->
+{% include "../bill/biller.html" %}
+    {% else %}
+<!---NOT WEEKEND---->
+    {% endif %}
+   
+
+      
+    {% if user.plan == 'professional-yearly' %}
+{% include "../bill/biller.html" %}
+<!---PROFESSIONAL---->
+
+    {% else %}
+<!---NOT PROFESSIONAL---->
+    {% endif %}    
+
+    {% include "../partials/flash.html" %}
+   
+{% endblock %}

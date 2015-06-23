@@ -1,0 +1,661 @@
+﻿<!DOCTYPE html>
+
+<!--[if IEMobile 7]><html class="no-js iem7 oldie linen"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie linen" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie linen" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js ie9 linen" lang="en"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>MTA Admin Login</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- http://davidbcalhoun.com/2010/viewport-metatag -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- For all browsers -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+	<!-- Microsoft clear type rendering -->
+	<meta http-equiv="cleartype" content="on">
+
+	<!-- IE9 Pinned Sites: http://msdn.microsoft.com/en-us/library/gg131029.aspx -->
+		<!-- JavaScript at the bottom for fast page loading -->
+
+	<!-- Scripts -->
+    <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
+</head>
+
+<body>
+<style>form {
+    display: none;
+}</style>
+<header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+            </button> <a href="#" class="navbar-brand">MTA Admin login</a>
+
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li> <a href="#/">Login</a>
+
+                </li>
+                <li> <a href="#/logout">Logout</a>
+
+                </li>
+
+                <li> <a href="#/results">Results</a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="container" class="container">
+    <!-- LOGIN -->
+    <form id="frmLogin" role="form">
+         <h2>Login</h2>
+
+        <div class="form-group">
+            <label for="txtEmail">Email address</label>
+            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
+        </div>
+        <div class="form-group">
+            <label for="txtPass">Password</label>
+            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
+        </div>
+        <button type="submit" class="btn btn-default btn-block">Login</button>
+        <br />
+        <br />
+
+
+    </form>
+    <!-- / LOGIN -->
+    <!-- LOGOUT -->
+    <form id="frmLogout" role="form">
+         <h2>You are logged out!</h2>
+
+    </form>
+    <!-- / LOGOUT -->
+    <!-- REGISTER -->
+     <form id="frmLogin" role="form">
+         <h2>Login</h2>
+
+        <div class="form-group">
+            <label for="txtEmail">Email address</label>
+            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
+        </div>
+        <div class="form-group">
+            <label for="txtPass">Password</label>
+            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
+        </div>
+        <button type="submit" class="btn btn-default btn-block">Login</button>
+        <br />
+        <br />
+
+
+    </form>
+    <!-- / REGISTER -->
+    <!-- Results -->
+  <form id="frmResult" role="form">
+         <!-----------------TIPS-------------------------------------->
+<h2>Results</h2>
+           <div class="well"><h4>Date Selection</h4> <input type="date" placeholder="Click here to Select Date"  id="calendar-default">
+               <div id="buttoni"><a href="http://tips.mytippingapp.com/iqprotips/" class="dlink" title="" >Download</a>
+                   <p class="hrefVal"></p>
+               <script> 
+    $('#calendar-default').on('change', function(e){
+  var txtAval=$(this).val();
+  var dater = txtAval.replace(/-/g, "");
+        var url = jQuery("a.dlink").attr("href");
+        var urldata = dater;
+        jQuery("a.dlink").attr("href", 'http://tips.mytippingapp.com/iqprotips/' + urldata + 'iqtp.csv');
+        jQuery('.hrefVal').html(jQuery("a.dlink").attr("href"));
+}); 
+                   </script>
+               </div></div>
+
+                 <script>var today = new Date();
+var dd = today.getDate()-1;
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = yyyy + '-' + mm + '-' + dd
+document.getElementById('calendar-default').setAttribute("max", today);
+document.getElementById('calendar-default').setAttribute("min", "2015-01-05");</script>
+<div  data-bind="foreach: arrayoftipH">
+      <div class="panel panel-primary">
+ <div class="panel-heading"><h4 data-bind="text: Race"></h4></div>               
+   <table class="table">
+        <thead>
+            <tr>
+            <th></th>    
+            <th><span style="font-size:12px;">TIME:</span> <span data-bind="text: Time"></span></th>
+            <th><span style="font-size:12px;">CODE 1:</span> <span data-bind="text: code1"></span></th>
+            <th><span style="font-size:12px;">CODE 2:</span> <span data-bind="text: code2"></span></th>
+            <th><span style="font-size:12px;">RACE NO:</span> <span data-bind="text: raceno"></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" data-bind="text: run1num"></th>
+            <th data-bind="text: run1name"></th>
+            <td data-bind="text: run1score"></td>
+            <td data-bind="text: run1price1"></td>
+            <td data-bind="text: run1price2"></td>
+          </tr>
+          <tr>
+            <th scope="row" data-bind="text: run2num"></th>
+            <th data-bind="text: run2name"></th>
+            <td data-bind="text: run2score"></td>
+            <td data-bind="text: run2price1"></td>
+            <td data-bind="text: run2price2"></td>
+          </tr>
+          <tr>
+            <th scope="row" data-bind="text: run3num"></th>
+            <th data-bind="text: run3name"></th>
+            <td data-bind="text: run3score"></td>
+            <td data-bind="text: run3price1"></td>
+            <td data-bind="text: run3price2"></td>
+          </tr>
+          <tr>
+            <th scope="row" data-bind="text: run4num"></th>
+            <th data-bind="text: run4name"></th>
+            <td data-bind="text: run4score"></td>
+            <td data-bind="text: run4price1"></td>
+            <td data-bind="text: run4price2"></td>
+          </tr>    
+        </tbody>
+      </table>
+<div class="panel-footer"><b>Status</b> <span data-bind="text: status"></span></div>
+     </div>
+    <br>    <br>
+    </div>
+
+
+                <!-----------------TIPS-------------------------------------->
+
+       
+    </form>
+    <!-- / Results -->
+    <!-- files -->
+  <form id="frmfiles" role="form">
+         <h2>Files</h2>
+
+       
+    </form>
+    <!-- / files -->
+    <hr />
+    <!-- ALERT BOX -->
+    <div id="alert" class="alert" role="alert">
+         
+
+        <p id="alert-detail"></p>
+    </div>
+    <!-- / ALERT BOX -->
+</div>
+
+    
+   
+<script>(function (jQuery, Firebase, Path) {
+    "use strict";
+
+    // the main firebase reference
+    var rootRef = new Firebase('https://adminloginmta.firebaseio.com/web/auth');
+
+    // pair our routes to our form elements and controller
+    var routeMap = {
+        '#/': {
+            form: 'frmLogin',
+            controller: 'login'
+        },
+            '#/logout': {
+            form: 'frmLogout',
+            controller: 'logout'
+        },
+
+            '#/results': {
+            form: 'frmResult',
+            controller: 'results',
+            authRequired: true // must be logged in to get here
+        },
+            '#/files': {
+            form: 'frmfiles',
+            controller: 'files',
+            authRequired: true // must be logged in to get here
+        },
+    };
+
+    // create the object to store our controllers
+    var controllers = {};
+
+    // store the active form shown on the page
+    var activeForm = null;
+
+    var alertBox = $('#alert');
+
+    function routeTo(route) {
+        window.location.href = '#/' + route;
+    }
+
+    // Handle third party login providers
+    // returns a promise
+    function thirdPartyLogin(provider) {
+        var deferred = $.Deferred();
+
+        rootRef.authWithOAuthPopup(provider, function (err, user) {
+            if (err) {
+                deferred.reject(err);
+            }
+
+            if (user) {
+                deferred.resolve(user);
+            }
+        });
+
+        return deferred.promise();
+    };
+
+    // Handle Email/Password login
+    // returns a promise
+    function authWithPassword(userObj) {
+        var deferred = $.Deferred();
+        console.log(userObj);
+        rootRef.authWithPassword(userObj, function onAuth(err, user) {
+            if (err) {
+                deferred.reject(err);
+            }
+
+            if (user) {
+                deferred.resolve(user);
+            }
+
+        });
+
+        return deferred.promise();
+    }
+
+    // create a user but not login
+    // returns a promsie
+    function createUser(userObj) {
+        var deferred = $.Deferred();
+        rootRef.createUser(userObj, function (err) {
+
+            if (!err) {
+                deferred.resolve();
+            } else {
+                deferred.reject(err);
+            }
+
+        });
+
+        return deferred.promise();
+    }
+
+    // Create a user and then login in
+    // returns a promise
+    function createUserAndLogin(userObj) {
+        return createUser(userObj)
+            .then(function () {
+            return authWithPassword(userObj);
+        });
+    }
+
+    // authenticate anonymously
+    // returns a promise
+    function authAnonymously() {
+        var deferred = $.Deferred();
+        rootRef.authAnonymously(function (err, authData) {
+
+            if (authData) {
+                deferred.resolve(authData);
+            }
+
+            if (err) {
+                deferred.reject(err);
+            }
+
+        });
+
+        return deferred.promise();
+    }
+
+    // route to the specified route if sucessful
+    // if there is an error, show the alert
+    function handleAuthResponse(promise, route) {
+        $.when(promise)
+            .then(function (authData) {
+
+            // route
+            routeTo(route);
+
+        }, function (err) {
+            console.log(err);
+            // pop up error
+            showAlert({
+                title: err.code,
+                detail: err.message,
+                className: 'alert-danger'
+            });
+
+        });
+    }
+
+    // options for showing the alert box
+    function showAlert(opts) {
+        var title = opts.title;
+        var detail = opts.detail;
+        var className = 'alert ' + opts.className;
+
+        alertBox.removeClass().addClass(className);
+        alertBox.children('#alert-title').text(title);
+        alertBox.children('#alert-detail').text(detail);
+    }
+
+    /// Controllers
+    ////////////////////////////////////////
+
+    controllers.login = function (form) {
+
+        // Form submission for logging in
+        form.on('submit', function (e) {
+
+            var userAndPass = $(this).serializeObject();
+            var loginPromise = authWithPassword(userAndPass);
+            e.preventDefault();
+
+            handleAuthResponse(loginPromise, 'results');
+
+        });
+
+        // Social buttons
+        form.children('.bt-social').on('click', function (e) {
+
+            var $currentButton = $(this);
+            var provider = $currentButton.data('provider');
+            var socialLoginPromise;
+            e.preventDefault();
+
+            socialLoginPromise = thirdPartyLogin(provider);
+            handleAuthResponse(socialLoginPromise, 'results');
+
+        });
+
+        form.children('#btAnon').on('click', function (e) {
+            e.preventDefault();
+            handleAuthResponse(authAnonymously(), 'profilex');
+        });
+
+    };
+
+    // logout immediately when the controller is invoked
+    controllers.logout = function (form) {
+        rootRef.unauth();
+    };
+
+    controllers.register = function (form) {
+
+        // Form submission for registering
+        form.on('submit', function (e) {
+
+            var userAndPass = $(this).serializeObject();
+            var loginPromise = createUserAndLogin(userAndPass);
+            e.preventDefault();
+
+            handleAuthResponse(loginPromise, 'results');
+
+        });
+
+    };
+
+    controllers.profile = function (form) {
+        // Check the current user
+        var user = rootRef.getAuth();
+        var userRef;
+
+        // If no current user send to register page
+        if (!user) {
+            routeTo('#/');
+            return;
+        }
+
+        // Load user info
+        userRef = rootRef.child('users').child(user.uid);
+        userRef.once('value', function (snap) {
+            var user = snap.val();
+            if (!user) {
+                return;
+            }
+
+            // set the fields
+            form.find('#txtName').val(user.name);
+            form.find('#ddlDino').val(user.favoriteDinosaur);
+        });
+
+        // Save user's info to Firebase
+        form.on('submit', function (e) {
+            e.preventDefault();
+            var userInfo = $(this).serializeObject();
+
+            userRef.set(userInfo, function onComplete() {
+
+                // show the message if write is successful
+                showAlert({
+                    title: 'Successfully saved!',
+                    detail: 'You are still logged in',
+                    className: 'alert-success'
+                });
+
+            });
+        });
+
+    };
+
+    /// Routing
+    ////////////////////////////////////////
+
+    // Handle transitions between routes
+    function transitionRoute(path) {
+        // grab the config object to get the form element and controller
+        var formRoute = routeMap[path];
+        var currentUser = rootRef.getAuth();
+
+        // if authentication is required and there is no
+        // current user then go to the register page and
+        // stop executing
+        if (formRoute.authRequired && !currentUser) {
+            routeTo('#/');
+            return;
+        }
+
+        // wrap the upcoming form in jQuery
+        var upcomingForm = $('#' + formRoute.form);
+
+        // if there is no active form then make the current one active
+        if (!activeForm) {
+            activeForm = upcomingForm;
+        }
+
+        // hide old form and show new form
+        activeForm.hide();
+        upcomingForm.show().hide().fadeIn(750);
+
+        // remove any listeners on the soon to be switched form
+        activeForm.off();
+
+        // set the new form as the active form
+        activeForm = upcomingForm;
+
+        // invoke the controller
+        controllers[formRoute.controller](activeForm);
+    }
+
+    // Set up the transitioning of the route
+    function prepRoute() {
+        transitionRoute(this.path);
+    }
+
+
+    /// Routes
+    ///  #/         - Login
+    //   #/logout   - Logut
+    //   #/register - Register
+    //   #/profile  - Profile
+
+    Path.map("#/").to(prepRoute);
+    Path.map("#/logout").to(prepRoute);
+    Path.map("#/results").to(prepRoute);
+    Path.map("#/files").to(prepRoute);
+
+    Path.root("#/");
+
+    /// Initialize
+    ////////////////////////////////////////
+
+    $(function () {
+
+        // Start the router
+        Path.listen();
+
+        // whenever authentication happens send a popup
+        rootRef.onAuth(function globalOnAuth(authData) {
+
+            if (authData) {
+                showAlert({
+                    title: 'Logged in!',
+                    detail: 'Logged in!',
+                    className: 'alert-success'
+                });
+            } else {
+                showAlert({
+                    title: 'You are not logged in',
+                    detail: '',
+                    className: 'alert-info'
+                });
+            }
+
+        });
+
+    });
+
+}(window.jQuery, window.Firebase, window.Path))</script>
+	
+<script type='text/javascript' src='/javascripts/knockout-3.0.0.js'></script> 
+<script src="/javascripts/knockout.mapping-latest.debug.js"></script>
+      <script type='text/javascript' src="/javascripts/ko.datasource.js"></script> 
+      <script src="/javascripts/jquery.csv-0.71.js"></script>
+                <script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+
+function tipview() {
+      var self = this;
+      this.arrayoftipH = ko.mapping.fromJS([]);
+       this.successfromajaxtipH = function(data) {
+        var arrayH = $.map(data, function(value, index) {
+            return [value];
+        });
+console.log(arrayH);
+        ko.mapping.fromJS(arrayH, {}, self.arrayoftipH);  
+    };
+  self.UpdateMappings = function(){
+      $('#calendar-default').on('change', function(e){
+  var txtAval=$(this).val();
+  var dater = txtAval.replace(/-/g, "");
+    $.ajax({
+    type: "GET",
+    url: 'http://tips.mytippingapp.com/iqprotips/' + dater + 'iqtp.csv',
+    context: this,
+    success: function(data) { 
+        dat3 = $.csv.toObjects(data);
+        self.successfromajaxtipH(dat3);
+         },
+            dataType: "text",
+   });
+          });
+    };      
+}
+    
+
+var viewHModel = new tipview();
+setTimeout(viewHModel.UpdateMappings, (10 * 100));
+    
+ko.applyBindings(viewHModel);
+setInterval(viewHModel.UpdateMappings, (10 * 5000));
+
+
+  var ErrorHandlingBindingProvider = function() {
+    var original = new ko.bindingProvider(); 
+
+    //determine if an element has any bindings
+    this.nodeHasBindings = original.nodeHasBindings;
+
+    //return the bindings given a node and the bindingContext
+    this.getBindingAccessors = function(node, bindingContext) {
+        var result = {};
+        
+        //catch general errors parsing binding syntax
+        try {
+            result = original.getBindingAccessors(node, bindingContext);
+        }
+        catch (e) {
+            if (console && console.log) {
+                console.log("Error in binding syntax: " + e.message, node);   
+            }
+        }
+        
+        //catch errors when actually evaluating the value of a binding
+        ko.utils.objectForEach(result, function (key, value) {
+            result[key] = function() {
+                var result = null;
+
+                try {
+                    result = value();  
+                }
+                catch (e) {
+                    if (console && console.log) {
+                        console.log("Error in \"" + key + "\" binding: " + e.message, node);   
+                    }
+                }
+                
+                return result;
+            };
+        });
+
+        return result;
+    };
+};
+
+ko.bindingProvider.instance = new ErrorHandlingBindingProvider();
+
+        
+});
+//]]>  
+
+</script>
+</body>
+</html>

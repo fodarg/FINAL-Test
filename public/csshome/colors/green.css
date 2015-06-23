@@ -1,0 +1,233 @@
+/**
+
+ *
+ * PALETTE:
+ * #00b159
+ * #26ab69
+ * #00b159
+ * #649430
+ * #578723
+ * #4a7a16
+ * #3e6e0a
+ */
+
+/**
+ * ========================================
+ * MAIN LAYOUT
+ * ========================================
+ */
+
+.accent-background-overlay {
+	background-color: #00b159;
+}
+
+/* BOOTSTRAP PRIMARY COLOR */
+a {
+	color: #00b159;
+}
+a:focus, a:hover {
+	color: #26ab69;
+}
+.text-primary {
+	color: #00b159;
+}
+a.text-primary:hover {
+	color: #26ab69;
+}
+.bg-primary {
+	background-color: #00b159;
+}
+a.bg-primary:hover {
+	background-color: #26ab69;
+}
+.btn-primary {
+	background-color: #00b159;
+	border-color: #26ab69;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: #00b159;
+	border-color: #578723;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+	background-color: #00b159;
+}
+.btn-primary .badge {
+	color: #00b159;
+}
+.btn-link {
+	color: #00b159;
+}
+.btn-link:hover,
+.btn-link:focus {
+	color: #26ab69;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+	background-color: #00b159;
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+	border-color: #00b159;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+	background-color: #00b159;
+}
+.pagination > li > a,
+.pagination > li > span {
+	color: #00b159;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+	color: #26ab69;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	background-color: #00b159;
+	border-color: #00b159;
+}
+.label-primary {
+	background-color: #26ab69;
+}
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+	background-color: #00b159;
+}
+a.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+	color: #00b159;
+}
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+	border-color: #00b159;
+}
+.progress-bar {
+	background-color: #00b159;
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+	background-color: #00b159;
+	border-color: #00b159;
+}
+.panel-primary {
+	border-color: #00b159;
+}
+.panel-primary > .panel-heading {
+	background-color: #00b159;
+	border-color: #00b159;
+}
+.panel-primary > .panel-heading + .panel-collapse > .panel-body {
+	border-top-color: #00b159;
+}
+.panel-primary > .panel-heading .badge {
+	color: #00b159;
+}
+.panel-primary > .panel-footer + .panel-collapse > .panel-body {
+	border-bottom-color: #00b159;
+}
+
+/**
+ * ========================================
+ * HEADINGS
+ * ========================================
+ */
+
+.section-heading:after {
+	background-color: #00b159;
+}
+
+/**
+ * ========================================
+ * LIST
+ * ========================================
+ */
+
+.features-icon-list-item:hover i {
+	background-color: #00b159;
+}
+.list-with-icons li > i[class*="icon-"],
+.list-with-icons li > i[class*="fa-"] {
+	color: #00b159;
+}
+
+/**
+ * ========================================
+ * HEADER SECTION
+ * ========================================
+ */
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li.current > a {
+	color: #00b159;
+}
+
+/**
+ * ========================================
+ * PRICING SECTION
+ * ========================================
+ */
+
+.pricing-package-items li > i.fa-check {
+	color: #00b159;
+}
+.pricing-table li:nth-child(1) .pricing-package-strip {
+	background-color: #00b159;
+}
+.pricing-table li:nth-child(2) .pricing-package-strip {
+	background-color: #649430;
+}
+.pricing-table li:nth-child(3) .pricing-package-strip {
+	background-color: #3e6e0a;
+}
+
+/**
+ * ========================================
+ * FOOTER SECTION
+ * ========================================
+ */
+
+.social-media-links li a:focus, .social-media-links li a:hover {
+	background-color: #00b159;
+}
+
+/**
+ * JPRELOADER
+ */
+
+#jpreBar {
+	background-color: #00b159;
+}

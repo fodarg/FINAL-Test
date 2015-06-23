@@ -1,0 +1,291 @@
+
+<div class="panel-overlay"></div>
+ 
+<div class="panel panel-left panel-cover">
+ 
+<div class="view view-left navbar-through">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="left"></div>
+<div class="center sliding">Main Menu</div>
+<div class="right"></div>
+</div>
+</div>
+<div class="pages">
+<div data-page="index-left" class="page">
+<div class="page-content">
+<div class="list-block">
+<ul>
+<li><a href="/dashboard" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Tips</div>
+</div></a></li>
+<li><a href="/www/tipresult.html" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Results</div>
+</div></a></li>
+<li><a id="Intercom" href="mailto:gou9n4i8@incoming.intercom.io" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Support</div>
+</div></a></li>
+<li><a href="/profile" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Profile</div>
+</div></a></li>
+<li><a href="/logout" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Logout</div>
+</div></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <!-- Views -->
+  <div class="views">
+    <!-- Your main view -->
+    <div class="view view-main">
+            
+            <!-- Top Navbar-->
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="center">Trial Registration</div>
+              </div>
+            </div>
+        <div class="pages">
+        <div class="page" data-page="home">
+          <div class="page-content">
+              <br>
+<div class="content-block-title"><strong>TRIAL REGISTRATION</strong></div>
+               <div class="content-block">
+        <p>Thank you for signing up for the 14 Day Free Trial.  You are required to enter your credit card details to continue.  <strong>You will not be billed until the trial period expires. </strong>
+</p>
+    <form {% if !user.stripe.last4 %}id="cardForm"{% endif %} action="/user/plan" method="POST" class="form-horizontal">
+           <!--CONTENT-->
+        <div class="card">
+  <div class="card-header" style="background:#E6E6E6">Professional</div>
+  <div class="card-content">
+
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><strong>{% if user.coupon == 'TRI50' %}<span style="color:#00b057"><strong>$49.50 coupon applied</strong></span>{% else %}$99{% endif %}</strong></div>
+          </div>
+        </li>
+           <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Monthly</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title">{% if user.coupon == 'TRI50' %}$495{% else %}$990{% endif %}</div>
+          </div>
+        </li>
+        <li class="item-content">
+         <div class="item-inner">
+            <div class="item-title"><span style="color:#B8B8B8; font-size:12px;">Billed Annually</span></div>
+          </div>
+        </li>
+        <li class="item-content">
+          
+          <div class="item-inner">
+            <div class="item-title" style="font-size:12px;">Tips Everyday</div>
+          </div>
+        </li>
+          <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="professional" data-toggle="radio" checked>
+        <div class="item-inner">
+          <div class="item-title">Monthly</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio"  name="plan" value="professional-yearly" data-toggle="radio" >
+        <div class="item-inner">
+          <div class="item-title">Yearly</div>
+        </div>
+      </label>
+    </li>
+      </ul>
+    </div>
+    
+   </div>
+            </div>
+        <!--CONTENT-->
+        <!-----------------OLD------------------
+        
+        <div class="row pricing">
+
+              				   <div class="col-md-3">
+						<ul class="pricing-table" style="list-style:none;">
+  <li class="title"><b>Professional</b></li>
+  <li class="price">{% if user.coupon == 'specialtrilogics' %}$54.50{% else %}$109{% endif %}<span style="font-size:12px;">/month Billed Annually</span></li>
+ 
+  <li class="description">{% if user.coupon == 'specialtrilogics' %}<span style="color:#00b057"><strong>$59.50</strong></span>{% else %}$119{% endif %} month to month</li>
+  <li class="cta-button">             <div class="mx-button">
+        <input type="radio" name="plan" id="button1" value="professional" data-toggle="radio" checked>
+        <label for="button1" unselectable>Monthly</label>
+    </div>
+                            <div class="mx-button">
+        <input type="radio" name="plan" id="button2" value="professional-yearly" data-toggle="radio">
+        <label for="button2" unselectable>Yearly</label>
+    </div></li>
+
+</ul>
+					</div>
+        </div>
+        <!-----------------------------------------OLD--------------------------------->
+ {% if !user.stripe.last4 %}
+             <div class="card">
+
+  <div class="card-content">
+        <div class="list-block">
+      <ul> 
+    <li>
+      <label class="label-radio item-content">
+        <div class="item-inner">
+          <div class="item-title">Card Number</div>
+        </div>
+        <input id="card-num" type="text" maxlength="16" class="form-control" placeholder="XXXXXXXXXXXXXXXX">
+        
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <div class="item-inner">
+          <div class="item-title">Card Month</div>
+        </div>
+         <input id="card-month" type="text" size="2" maxlength="2" class="form-control" placeholder="MM">
+        
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <div class="item-inner">
+          <div class="item-title">Card Year</div>
+        </div>
+         <input id="card-year"  type="text" size="2" maxlength="2" class="form-control" placeholder="YY">
+        
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <div class="item-inner">
+          <div class="item-title">Card CVC</div>
+        </div>
+        <input id="card-cvc" type="text" size="3" maxlength="3" class="form-control" placeholder="CVC">
+        
+      </label>
+    </li>
+      </ul>
+    </div>
+      </div>
+                 </div>
+       <p>By Finishing your Registration you agree to the Terms &amp; Conditions</p> <a href="#" data-popup=".popup-about" class="open-popup">Read Terms &amp; Conditions</a>
+        <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+              <p>{{error}}</p>
+            </div>
+              <!-----------------------------------------OLD---------------------------
+      <div id="cardWrapper">
+        <div class="form-group">
+          <div class="content-block-title">Card Number</div>
+          <div class="col-sm-4">
+            <input id="card-num" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="content-block-title">Card Details</div>
+          <div class="col-sm-4">
+            <div class="row" >
+<div class="col-20">
+                <input id="card-month" type="text" size="2" maxlength="2" class="form-control" placeholder="MM"></div>
+<div class="col-20">
+                <input id="card-year"  type="text" size="2" maxlength="2" class="form-control" placeholder="YY"></div>
+<div class="col-20">
+                <input id="card-cvc" type="text" size="3" maxlength="3" class="form-control" placeholder="CVC"></div>
+                <div class="col-40"></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-6">
+            <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+              <p>{{error}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+              <!-----------------------------------------OLD--------------------------------->
+      {% endif %}
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button type="submit" class="button">Finish Registration</button>
+        </div>
+      </div>
+    </form>
+
+    {% if user.stripe.last4 %}
+      <p>Complete registration by entering your billing details below.</p>
+    <form role="form" id="cardForm" action="/user/billing" method="POST" class="form-horizontal">
+      <div class="form-group">
+        <div class="content-block-title">Card Number</div>
+        <div class="col-sm-4">
+          <input id="card-num" type="text" class="form-control" placeholder="XXXX XXXX XXXX {{user.stripe.last4}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="content-block-title">Card Details</div>
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-xs-4">
+              <input id="card-month" type="text" size="2" maxlength="2" class="form-control" placeholder="MM">
+            </div>
+            <div class="col-xs-4">
+              <input id="card-year"  type="text" size="2" maxlength="2" class="form-control" placeholder="YY">
+            </div>
+            <div class="col-xs-4">
+              <input id="card-cvc" type="text" size="3" maxlength="3" class="form-control" placeholder="CVC">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-6">
+          <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+            <p>{{error}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button type="submit" class="button">Update Card</button>
+        </div>
+      </div>
+    </form>
+
+    {% endif %}
+            {% include "../partials/flash.html" %}
+                   </div>
+  </div>
+      </div>
+             </div>
+        </div>
+      </div>
+<!-- T&C Popup -->
+  <div class="popup popup-about">
+    <div class="content-block">
+      <h3>Terms &amp; Conditions</h3>
+      <p><a href="#" class="close-popup">Return to Registration</a></p>
+      <p>This offer (the “14 Day Free Trial”), which is made to you by MyTippingApp, entitles you access to the MyTippingApp Professional Plan for a period of fourteen (14) days from the moment that you activate such trial period by submitting your payment details. By submitting your payment details, you accept the 14 Day Free Trial and (i) consent to us using your payment details in accordance with our Privacy Policy, (ii) acknowledge and agree to MyTippingApp Terms and Conditions of Use and these MyTippingApp Professional Plan General Free Trial Terms and Conditions. If you decide that you do not want to become a paying user of the MyTippingApp Professional Plan upon the lapse of the Free Trial Period, you have to terminate your Professional Plan by the end of the Free Trial Period. You may only use this Free Trial Offer once. MyTippingApp reserves the right, in its absolute discretion, to withdraw or to modify this Free Trial Offer and/or the MyTippingApp 14 Day Free Trial Terms and Conditions at any time without prior notice and with no liability.</p>
+    </div>
+  </div>

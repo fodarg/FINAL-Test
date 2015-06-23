@@ -1,0 +1,2285 @@
+<link rel="stylesheet" href="stylesheets/hint.css">
+    <script type="text/javascript" src="javascripts/guiders.js"></script>
+    <link rel="stylesheet" href="stylesheets/guiders.css" type="text/css" />
+<!------------NAVBAR------------------>
+ 
+<div class="statusbar-overlay"></div>
+
+ 
+<div class="views">
+ 
+ 
+<div class="panel-overlay"></div>
+ 
+<div class="panel panel-left panel-cover">
+ 
+<div class="view view-left navbar-through">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="left"></div>
+<div class="center sliding">Main Menu</div>
+<div class="right"></div>
+</div>
+</div>
+<div class="pages">
+<div data-page="index-left" class="page">
+<div class="page-content">
+<div class="list-block">
+<ul>
+<li><a href="/www/tipresult.html" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Results</div>
+</div></a></li>
+<li><a id="Intercom" href="mailto:gou9n4i8@incoming.intercom.io" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Support</div>
+</div></a></li>
+<li><a href="/profile" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Profile</div>
+</div></a></li>
+<li><a href="/billing" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Billing</div>
+</div></a></li>
+<li><a href="/logout" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Logout</div>
+</div></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!----------------------NAVBAR END-------------------->
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-reveal">
+<div class="view">
+<div class="pages">
+<div class="page">
+<div class="page-content">
+<div class="list-block">
+<ul>
+<li><a href="/www/tipresult.html" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Results</div>
+</div></a></li>
+<li><a id="Intercom" href="mailto:gou9n4i8@incoming.intercom.io" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Support</div>
+</div></a></li>
+<li><a href="/profile" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Profile</div>
+</div></a></li>
+<li><a href="/billing" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Billing</div>
+</div></a></li>
+<li><a href="/logout" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Logout</div>
+</div></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <!-- Views, and they are tabs-->
+
+    <div class="views tabs toolbar-through">
+      <div id="view-1" class="view view-main tab active">
+                  <div class="navbar">
+          <div class="navbar-inner">
+              <div class="left">
+            <a href="#" data-panel="left" class="open-panel link icon-only" >
+                <i class="icon icon-bars"></i>
+            </a>
+             </div>
+            <div class="center sliding">Live Tips</div>
+            <div class="right"><img src="/img/brand.png"/></div>
+        <div class="subnavbar">
+        <!-- Sub navbar content-->
+        <div class="left">
+            <a href="#" data-picker=".picker-1" class="open-picker button" id="selectprof">Set Desired Profit</a></div>
+            <div class="right">
+            <a href="#" data-picker=".picker-2" class="open-picker button" id="selectodds">Set Desired Odds</a>
+        </div>
+       </div>
+          </div>
+        </div>
+        <!-- Pages-->
+        <div class="pages navbar-through">
+          <!-- Page-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+
+<!-----------------TIPS-------------------------------------->
+                         <style>
+                     .card-header {font-size: 14px;}
+                             .row {padding-top:5px;}
+                             .card p {margin:0;}</style>
+
+      <div  data-bind="foreach: arrayoftip" >
+        <div class="card">
+             <form method="post" action="" data-bind="value: key, attr : {name: 'tipper'+$index()+'name',id: 'tipper'+$index()+'name' }" >
+
+  
+<!-----MAIN TIP INFO-------> 
+<div class="card-header" style="background-color: #00b057;height:20px">
+                <span class="hint--bottom" data-hint="Race Name">
+                <div class="col-40" style="padding-left:5px;color:#fff;"><p data-bind="text: Race"></p></div>
+                </span>
+                <span class="hint--bottom" data-hint="Race Number">
+                <div class="col-20"><p style="color:#fff;">Race: <span data-bind="text: raceno"></span></p></div>
+                </span>
+                <span class="hint--bottom" data-hint="Jump Time">
+                <div class="col-40" align="right" style="padding-right:10px;"><p style="color:#fff;">Start Time: <span data-bind="text: Time"></span></p></div>
+                </span>
+</div><!-----MAIN TIP INFO-------> 
+                            
+<div class="card-content">
+<div class="card-content-inner">
+    
+<!-----COL NAME HEADER-------> 
+<div class="row no-gutter" style=" ">
+                  <div class="col-10" style="padding-left:5px;"> No.</div>
+                  <div class="col-50">Selection</div>
+                  <div class="col-20">Odds</div>
+                  <div class="col-20">Stake &dollar;</div>
+</div><!-----HEADER-------> 
+        
+<!-----TIP1-------> 
+<div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="style: { background: run1price1() > stringValue()  ? '#f5c4c4' : 'none'}" id="rowruntop">
+                    <div class="col-10 child" id="runnum"><strong> <p style="padding-left:5px;" data-bind="text: run1num"></p></strong></div>             
+                    <div class="col-50 child"><strong><p style="font-size:12px; " data-bind="text: run1name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run1score" id="runscore"></p></strong></div> 
+                    <div class="col-15 child"> <input name="textfield1" type="number" id="textfield1" style='border:0px solid #000000;font-size:14px;;background:transparent;' onChange="recalcodds()"  size="6" data-bind="value: run1price1" onfocus="{ this.value = ''; }" readonly></div>               
+                    <div  class="col-20 child"><input name="stake1" type="text" id="stake1"  style='border:0px solid #000000; text-align: center;font-size:13px;background:none; width: 50px;' size="6" readonly="TRUE"></div>
+</div><!-----TIP1-------> 
+        
+<!-----TIP2-------> 
+<div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="style: { background: run2price1() > stringValue() ? '#f5c4c4' : 'none'}">
+                     <div  class="col-10 child"><strong> <p style="padding-left:5px;" data-bind="text: run2num"></p></strong></div>
+                     <div  class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run2name" ></p><p style="font-size:11px; color:#00b058;" data-bind="text: run2score"></p></strong></div>
+                     <div  class="col-15 child"><input name="textfield2" id="textfield2" style='border:0px solid #000000;font-size:14px;background:transparent;' type="number" size="6"  onChange="recalcodds()" data-bind="value: run2price1" onfocus="{ this.value = ''; }" readonly></div>
+                     <div  class="col-20 child"><input name="stake2" type="text" id="stake2" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                     </div>
+</div><!-----TIP2-------> 
+
+<!-----TIP3-------> 
+<div class="row no-gutter" style=" border-top: thin solid #dfdfdf;" data-bind="style: { background: run3price1() > stringValue() ? '#f5c4c4' : 'none'}">
+                     <div  class="col-10 child"><strong> <p style="padding-left:5px;" data-bind="text: run3num"></p></strong></div>
+                     <div  class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run3name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run3score"></p></strong></div>
+                     <div  class="col-15 child" ><input name="textfield3" id="textfield3" style='border:0px solid #000000;font-size:14px;background:transparent;' type="number" size="6"  onChange="recalcodds()" data-bind="value: run3price1" onfocus="{ this.value = ''; }" readonly>
+                    </div>
+<div  class="col-20 child"><input name="stake3" type="text" id="stake3" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                    </div>
+</div><!-----TIP3-------> 
+        
+<!-----TIP4-------> 
+<div class="row no-gutter" style=" border-top: thin solid #dfdfdf;border-bottom: thin solid #dfdfdf;" data-bind="style: { background: run4price1() > stringValue() ? '#f5c4c4' : 'none'}">
+                        <div  class="col-10 child child"><strong> <p style="padding-left:5px;" data-bind="text: run4num"></p></strong></div>
+                        <div  class="col-50 child"><strong> <p style="font-size:12px; " data-bind="text: run4name"></p><p style="font-size:11px; color:#00b058;" data-bind="text: run4score"></p></strong></div>
+                        <div  class="col-15 child"><input name="textfield4" id="textfield4" style='border:0px solid #000000;font-size:14px;background:transparent;' type="number" size="6"  onChange="recalcodds()" data-bind="value: run4price1" onfocus="{ this.value = ''; }" readonly>
+                        </div>
+                        <div  class="col-20 child"><input name="stake4" type="text" id="stake4" style='border:0px solid #000000; text-align: center;font-size:13px;background:none;' size="6" readonly="TRUE">
+                        </div>
+</div><!-----TIP4-------> 
+
+<!-----TOTALS-------> 
+<div class="row no-gutter" style="margin-top:15px">
+                     <div  class="col-40" style="display:none"><input name="overallodds" type="text" id="overallodds" onChange="overalloddsCalc()" style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
+                     </div>
+                     <div  class="col-20" align="center" style="padding-left:5px;"><input name="totalstake" type="text"  id="totalstake" value="100" size="6" onChange="recalcodds()" style=' background-color:#ebebeb;text-align: center; width: 60px;'>
+                    </div>
+                    <div  class="col-15" align="center "><input name="returncash" type="text" size="6" style='border:0px solid #000000; text-align: center; width: 50px;' readonly="TRUE">
+                    </div>
+                    <div  class="col-20" align="center">
+    <input name="profit" type="text" size="6" style="border:0px solid #000000; text-align: center;background:none; width: 50px;" readonly="TRUE" data-bind="value: key, attr : {id: 'totalstake'+$index()}">
+    <div data-bind="value: key, attr : {id: 'dnb'+$index()}" style="color:red"></div>
+                    </div>    
+</div><!-----TOTALS-------> 
+        
+<!-----FOOTER HEADERS-------> 
+<div class="row no-gutter"  >
+                    <div  align="center" class="col-40"  style="display:none"><strong></strong></div>
+                    <div  align="center" class="col-20" style="text-align:center; font-size:10px;"><strong>Total Stake</strong></div>
+                    <div  align="center" class="col-15" style="text-align:center; font-size:10px;"><strong>Return</strong></div>
+                    <div  align="center" class="col-20" style="text-align:center; font-size:10px;"><strong>Profit</strong></div>
+</div><!-----FOOTER HEADERS-------> 
+
+<!-----HIDDEN CALC PROBS------->         
+<div class="row no-gutter" style='border:0px solid #000000; display:none;'>
+                      <div  class="col col-20"><input name="prob2" type="text" id="prob2"  style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
+                    </div>
+                      <div  class="col col-20"><input name="prob1" type="text" id="prob1"  style='border:0px solid #000000; display:none;' size="6" readonly="TRUE" onChange="probCalc(1)">
+                    </div>
+                      <div  class="col col-20"><input name="prob3" type="text" id="prob3"  style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
+                    </div>
+                      <div  class="col col-20"><input name="prob4" type="text" id="prob4"  style='border:0px solid #000000; display:none;' size="6" readonly="TRUE">
+                    </div>
+</div><!-----HIDDEN CALC PROBS-------> 
+    
+</div><!-----card-content-inner------->    
+</div><!-----card-content------->    
+ </form>
+</div>
+          <!-------------CARD END----------------->
+</div>
+          <!--------------FOREACH DIV END---------------->
+                <!-----------------TIPS-------------------------------------->
+                
+                </div>
+              <!-----------PAGE CONTENT DIV END---------------------->
+          </div>
+            <!---------------------index-1 PAGE END---------------------->
+        </div>
+          <!--------------------------pages navbar-through END----------->
+      </div>
+        <!---------------------------view-1 END-------------------------->
+        
+      <!-- Second view (for second wrap)-->
+      <div id="view-2" class="view tab view2">
+        <!-- We can make with view with navigation, let's add Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+              <div class="left">
+            <a href="#" data-panel="left" class="open-panel link icon-only" >
+                <i class="icon icon-bars"></i>
+            </a>
+             </div>
+            <div class="center sliding">Glossary</div>
+              <div class="right"><img src="/img/brand.png"/></div>
+          </div>
+        </div>
+        <div class="pages navbar-through">
+          <div data-page="index-2" class="page">
+            <!-- Search bar -->
+  <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar">
+    <div class="searchbar-input">
+      <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+    </div><a href="#" class="searchbar-cancel">Cancel</a>
+  </form>
+ 
+  <!-- Search bar overlay -->
+  <div class="searchbar-overlay"></div>
+ 
+  <div class="page-content">
+    <!-- This block will be displayed if nothing found -->
+    <div class="content-block searchbar-not-found">
+      <div class="content-block-inner">Nothing found</div>
+    </div>
+ 
+    <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+    <div class="list-block list-block-search searchbar-found accordion-list">
+      <ul>
+<li class="accordion-item accordion-item-expanded"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Acceptor</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse whose connections have paid the acceptance fee for a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Added Weight</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">A horse carrying more weight than is required, eg, jockey exceeds the weight.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Age Of Horse</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Birthday of horse always on 1st August each year.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">All Clear</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Also known as "Correct Weight". This is announced after the Stewards have indicated that the weights carried were correct and that there is no protest.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">All In</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A bet taken usually at fixed odds early in betting.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Also Ran</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse who finishes out of the money.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Apprentice Allowance</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+ A reduction in the weight to be carried by a horse if it is ridden by an apprentice jockey.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Apprentice Claim</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Weight concession to an apprentice rider.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Apprentice Rider</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Normally under contract to a stable, learning to ride.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Backed Off The Map</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner heavily backed in betting.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bagman</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Bookmakers personnel responsible for settling up on bets at racecourses.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bailed Up</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner racing inside other runners and unable to get clear running.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bandage</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Strips of cloth wound around the lower part of a horse's legs for support or protection against injury.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Barriers</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The starting gates.  A set of gates which is used to keep horses in line before the start of a race. Each horse has a barrier allocated in the barrier draw for the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Barrier Blanket</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Assists horses who protest being loaded in the barrier starting gates.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Birdcage</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A portion of the racecourse where the runners are paraded before the start of a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bleeder</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+When a horse bleeds from the lungs during or after running.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Blinkers</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Hood that fits over the bridle with cups placed around the horse's eyes to restrict vision of other horses to the side and rear.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bleeder</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Horse who bleeds during or after a workout or race due to ruptured blood vessel.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Blinkers</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Device to limit a horse's vision to prevent him from swerving from objects or other horses on either side of him.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Blows</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+When a previously favoured horse is unwanted in betting before the race and the bookmakers increase the odds.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bolted</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+During the race the horse has ran many lengths in front of the field or has won the race by many lengths. "He has bolted in."
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Bookmakers</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A person licensed to conduct betting on or off course.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Box/Boxed</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Two or more runners to finish in any order in a multiple bet such as Quinella, Exacta, Trifecta.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Box Trifecta</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Usually four or five horses are "boxed" in a trifecta. If three of the horses selected all finish in the first three placings, the punter collects for a winning trifecta.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Broken Down</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+When a horse suffered an injury; lameness.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Checked</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse which receives some type of interference.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Claim</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A reduction in the amount of weight carried by a horse being ridden by an apprentice.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Class</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The grade of the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Coat-Tugger</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Someone who offers a punter a tip then demands a percentage of their winnings.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Colt</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A male horse 3 years and under and has not been gelded.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Connections</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse's owners and their representatives or anyone personally connected to the horse such as the jockey and training staff.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Correct Weight</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Placings in a race are official.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Daily Double</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select the winner in two races.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Dam</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Female parent of a foal.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Dead Heat</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Two or more horses finishing in an exact tie at the finish line.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Dead Track</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Racing surface lacking resiliency, just on the softer side of Good.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Derby</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A stakes race for 3YO's.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Distanced</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Well beaten, finishing a great distance behind the winner.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Dividend</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Places are paid for First (Win and Place), Second and Third (Place only). A fourth place getter is included for betting on the First Four only, no place dividend is paid on the fourth place getter.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Dwelt</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Tardy in breaking from the gate.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Each way</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Have equal amount of money on the horse for a win and for a place.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Each Way Odds</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+usually is four to one, you receive all your money back if it comes second or third as long as eight or more runners in race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Eased</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse is backed off usually to find position in the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Eligible</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Qualified to start in a race, according to conditions.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Emergency</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Additional nominated runners are accepted but will only gain a run if others in the field are scratched.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title"> Entire</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+An ungelded horse.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Exacta</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select the first two horses in a race in the finishing order.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Exotics</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A multiple bet such as Quinella, Exacta, Trifecta, First Four &amp; Quaddie.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Extended</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Running at top speed.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">False Favourite</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse that is favourite for the race but you consider another selection should be favourite
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Farrier</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A specialist in equine hoof care (a blacksmith).
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Fast</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The firmest track rating.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Favourite</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The most popular horse in betting and therefore the one who starts at the shortest odds.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Feature Race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The highest rated race on the card, determined by the category of the race and the prize money.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Field</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horses in the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Filly</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+In most cases a filly is a female horse 3 YO's or under.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">First Four</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select first four horses in the correct order in a pre selected race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">First Up</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner resuming from a spell, being a break from racing for 3 months or more.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Flat Race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Contested on level ground, not a hurdle race or steeplechase.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Flexi-Betting</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+To invest a smaller amount than the full dollar value of the wager and receive a reduced percentage of the final dividend.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Fluctuation</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The movements of the odds of a runner moving up or down in the betting ring.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Front Runner</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse who usually leads the field for as far as he can.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Furlong</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Approx 200 metres.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Gallop</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A fast canter. 
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Gelding</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Castrated male horse of any age.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Gelding</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">A male horse with both testicles removed. Horses are gelded to prevent them becoming too heavy and to moderate their behaviour.
+
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Good Track</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Condition between fast and slow.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Grew Another Leg</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The runner suddenly improved during the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Group Races</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The best horse races in the country which are decided by the Australian Racing Board. There are four types of Black Type races Group 1 (the highest), Group 2, Group 3 and Listed (Group 4)
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Hand</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A traditional unit of measure used to determine the height of a horse. A hand is about 10cm, with the horse being measured from the ground to the highest point of the wither (ridge between the shoulder bones). Most thoroughbreds are around 16 hands.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Handicap Race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race that has weights assigned to horses by the handicapper according to ability to equalise each horse's chances of winning.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Handicapper</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The person who assigns handicaps to competitors.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Hands &amp; Heels</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Riding the horse without using the whip. 
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Hanging</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A term used to describe a horse that is not running straight. Jockeys must make all endeavours to ensure their horses run in a straight line during races.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Head</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Margin between runners.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Heavy Track</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Next level up from slow. A rain affected track.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Horse</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A term used in a specific Stud Book sense for any entire male four years old or older. In its general everyday sense the term applies to any male or female of the equine species.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Hoop</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Another name for a Jockey.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Hurdle Race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Contested over obstacles. A jumping race over lower fences than steeplechase races.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Impost</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The weight to be carried by the horse for a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">In Foal</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Pregnant mare.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">In The Money</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">The horse finished a race winning some prize money.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">In The Red</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Odds in the bookmakers ring are very short, less than evens.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Infield</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Area inside the racetrack.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Knocked Up</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The runner stops racing in the straight usually due to a hard run in racing.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Knuckled</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse almost fell on its knees or stumbled.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Lame</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Pain in limbs causing deviation in normal running.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Late Mail</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Last minute tips that take jockeys, scratchings and track conditions/bias into account.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Late Scratching</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner that is withdrawn from the race after 8am on race day.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Lay</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+When a bookmaker offers better odds because they believe the horse cannot win.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Length</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A measurement (the length of a horse) used to describe the distance between horses in a race.  A horses length from nose to tail.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Listed race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A stakes race, below a group race in quality.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Long Shot</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner being at long odds and is unlikely to win.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Maiden</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse who has not won a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Maiden Race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race restricted to horses which at the time of starting have never won on the flat a race at a registered meeting.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Mare</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Adult female horse 4YO's or older.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Metropolitan course</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A course in the metropolitan area; in Victoria these are Flemington Racecourse, Caulfield Racecourse, Sandown Racecourse and Moonee Valley Racecourse.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Middle Distance</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race that is run over between 1400 and 2199m.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Monkey</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Five Hundred Dollars. Usually a casino chip.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Moral</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+An absolute certainty to win the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Mounting Yard</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The area where the horses are paraded before a race and jockeys take their mounts.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Mudlark</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse that runs well on heavy (very rain-affected) tracks.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Mug Punter</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A person who is poor at punting/betting.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Near side</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Left side of a horse from which the horse is always approached, led and mounted.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Neck</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Margin between horses, about the length of a horses neck.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Nose</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The smallest measuring margin between runners.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Noseroll</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A sheepskin roll attached to the bridle on the horses nose to keep the head in line with the body.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Oaks</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A classic stakes race for 3YO fillies.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Odds</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Likelihood of a horse winning or placing in a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Odds-Against</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The prices in the betting ring are longer than even money (e.g. $4.00 for $1.00 invested.)
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Odds On</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Odds of less than even money.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Off Side</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Right side of horse.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Open race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race with no restrictions on entry. Also used as slang for a race in which many horses have a good winning chance.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">On The Nod</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A person betting with a bookmaker on credit.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">On The Nose</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+To back a horse for the win only.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Pacifiers</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Hood with gauze eye covers to restrict the vision of an excitable horse.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Paddock</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Before the race the clerk of the course leads the horses from the saddling paddock to the mounting yard.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Past performances</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse's racing record.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Photo Finish</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A finish where it is difficult for the judge to determine the winner, so a camera is used to take a photo of the finish line as the horses cross the line.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Pig-Root</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse bucks and tries to throw the jockey.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Place</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+This is when a horse runs either 1st, 2nd or 3rd and you receive a dividend. There must be eight runners or more.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Plunge</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+In the bookmakers ring, a sudden rush of money for a particular horse.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Protest</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+An objection lodged by the jockey, connections or the stewards regarding the outcome of a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Pulled Up</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+To stop or slow a horse during the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Punter</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Person placing a wager.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Quadrella</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select the winner of 4 pre nominated races on the card.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Quarantine</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A process used to isolate foreign horses for a short period of time to ensure they are not carrying any diseases.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Quinella</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select the first two horses in a race in any order.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Racecaller</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Person who verbally describes a race over the public address system or for radio or television broadcast.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Rails</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The prime position in the bookmakers ring.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Ridden Out</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner that finishes the race under average urging by the rider.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Ridden Upside Down</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse did not race in the way that suits it best, e.g. a front-runner that was ridden at the 
+back.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Ring-In</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse that has been illegally substituted for another acceptor in a race. Eg. Fine Cotton Ring-In.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Roughie</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse at a long price in the ring with little chance of winning.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Running Double</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select the winner in two consecutive races.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Saddle Cloth</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Cloth under the saddle displaying the horses number.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Scratched</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+When a horse is withdrawn from a race most commonly due to injury, track conditions or programming decisions for a horse.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Second Up</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Next run after a first up run, following spell of 90 days or more.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Silks</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Jacket and Cap worn by jockeys to identify themselves.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Sire</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The male parent.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title"> Slow</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Rain affected track. Better than heavy.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">SP Bookmaker</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+An illegal bookie, a person that takes bets without a licence.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Spell</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse that has had a break from racing for 90 days or more
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Stallion</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A male horse for breeding.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Stayer</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse that races in lond distance races, eg. 2000 metres and more.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Staying race</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race of more than 2200m.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Steeplechase</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race incorporating jumps larger than hurdles.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Stewards</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Racing officials responsible for enforcing the rules of racing.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Straight Six</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Select the winner of six consecutive pre nominated races.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Strapper</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The Groom, a person employed by the trainer to attend to a horse. Duties may include feeding, grooming, riding at training and leading in the mounting yard.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Stone Motherless</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse was last in the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Suspension</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The period of time a jockey or trainer is suspended due to an infraction of the rules of racing.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Swooper</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A horse that likes to finish on from the tail of the field at the end of the race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Top Fluc</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A bet accepting the odds which are the highest fluctuation in the betting ring.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Track Conditions</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The rating given to a racetrack on race day.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Track Ratings</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Used to describe the racing surface (Fast Very firm surface, Good Firm surface, Dead Track with give in the ground, Slow Rain affected, Heavy Very rain affected).
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Treble</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A bet involving three consecutive races nominated by the TAB.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Trifecta</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A wager selecting the first 3 runners of a race.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Under Double Wraps</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse won easily without extending to its full ability.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Unders</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A runner whose odds are too short in relation to its chances of winning.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Untried</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Not raced or not raced at a certain distance.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Wager</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A bet.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Walkover</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A race with only one runner. 
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Warned Off</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A licensed person is forbidden from entering a racecourse or associating with other licensed people.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Weight For Age</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Fixed scale of weights to be carried by horses.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Well-Held</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse won easily without being fully extended. 
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Win</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Your selection crosses the line first and correct weight it given.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Welter</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A handicap with a higher minimum weight.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Winkers</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+Sheepskin which attaches to the cheek straps of the bridle to keep the horses attention forward.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Write Your Own Ticket</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+The horse is so unlikely to win a bookie would give you any odds you asked for.
+        </div>
+      </div>
+    </li><li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Yearling</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block">
+A young horse, a 2Y0.
+        </div>
+      </div>
+    </li>
+      </ul>
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+      <div id="view-3" class="view tab view3">
+           <div class="navbar">
+          <div class="navbar-inner">
+              <div class="left">
+            <a href="#" data-panel="left" class="open-panel link icon-only" >
+                <i class="icon icon-bars"></i>
+            </a>
+             </div>
+            <div class="center sliding">Help</div>
+              <div class="right"><img src="/img/brand.png"/></div>
+          </div>
+        </div>
+        <div class="pages navbar-through">
+         <div data-page="index-3" class="page">
+             <div class="page-content">
+<!-----------------HELP-------------------------------------->
+                 <style>
+                     .card-header {font-size: 14px;  font-weight: 600;
+  background: #007AFE;
+  color: #fff}</style>
+                 <div class="card">
+<div class="card-header">
+   Can I have a Tour of MyTippingApp?
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+     <p class="color-gray"> Click the link below to start a guided tour of MyTippingApp.</p>
+        <a href="javascript:window.location.href=location.href+'#guider=welcome';
+window.location.reload(true);" class="button external">Take the Tour</a>
+    </div>
+</div> 
+                                </div>
+                 <div class="card">
+<div class="card-header">
+   How do I add MyTippingApp to the Home Screen of my phone?
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+     <p  class="color-gray">Download and Install Android Application</p>
+          
+    
+<p class="color-gray">Download the android app by clicking on the below link. Once downloaded please install by clicking on the download. Agree to the installation and you will be able to access the MyTippingApp for Android. </p>
+								<!-- PLAY STORE DOWNLOAD -->
+								<a href="http://mytippingapp.com/www/app/MyTippingApp.apk" class="button external">
+									<strong>Download App</strong> <span>for Android</span>
+								</a>
+<p  class="color-gray">Add a Link Button to the Home Screen on iPhone/iPad</p>
+
+<p class="color-gray">Launch the Safari browser on Apple’s iOS and navigate to the website or web page you want to add to your home screen. Tap the Share button on the browser’s toolbar — that’s the rectangle with an arrow pointing upward. It’s on the bar at the top of the screen on an iPad, and on the bar at the bottom of the screen on an iPhone or iPod Touch. Tap the Add to Home Screen icon in the Share menu.  Other browsers, like Chrome for iOS, don’t offer this feature. Due the limitations in Apple’s iOS,only Apple’s own Safari browser is allowed to do this.</p>
+
+<p class="color-gray">After you have saved to your homescreen please login by clicking the button at the top of the screen.</p>  
+    </div>
+</div> 
+                                </div>
+ <div class="card">
+<div class="card-header">
+   
+    I forgot to enter my Discount Code when signing up for the Free Trial.  How can I add the Discount Code to my account now? 
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+     <p class="color-gray"> Go to the "Profile" link in MyTippingApp and add your code in the Discount Code section of your profile.  You must be logged in to see the Profile section.  The Discount will be added for any future purchase of the Professional Plan.</p>
+    </div>
+</div> 
+                                </div>
+                <div class="card"> 
+<div class="card-header">
+    
+    Can I access MyTippingApp on my phone or tablet?
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+     <p class="color-gray"> Yes.  Go to www.mytippingapp.com using the browser on your mobile device.  Log In using your username and password.</p>
+    </div>
+                    </div> 
+                                </div>
+                    <div class="card">
+                <div class="card-header">
+   
+    What is “1623” in the Odds field?
+  </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+     <p class="color-gray"> This is the code provided by the TAB when the horse has been scratched, in lieu of a dividend amount.</p>
+    </div>
+                        </div> 
+                                </div>
+                        <div class="card">
+              <div class="card-header">
+    
+    How can I remove a horse from the Staking Calculations? 
+  </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+    <p class="color-gray">  Click on the Odds field for that horse and the Bet Outlay will be removed for that horse only and the return will be recalculated for all remaining horses.  Please note that the odds are refreshed each minute.  Upon refresh the horse will be added back into the calculations with the new odds.  If you remove a horse by accident it will reappear upon the odds updating.</p>
+    </div>
+                            </div> 
+                                </div>
+                            <div class="card">
+              <div class="card-header">
+  
+    How do I get Support for MyTippingApp? 
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+      <p class="color-gray">There is a simple walk through tour provided when you first access MyTippingApp which explains the screens and fiunctionality.  Please note that there is no support provided for MyTippingApp through the Support Portal.  The Support Portal is for TriLogics and IQPro only.  If you have any questions please send me an email and I will answer your questions directly.</p>
+    </div>
+          </div> 
+                                </div>
+                               <div class="card">
+<div class="card-header">
+   
+    I have a question that isn't listed. Where do I get support? 
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+    <p class="color-gray">  Click on the menu button in the top left corner to open the Main Menu. From the main menu you can select "Support" and enter your question in the pane that slides out. We will respond to your inquiry as soon as possible. </p>
+    </div>
+</div>
+                                   </div>
+                                   <div class="card">
+<div class="card-header">
+   
+   I wish to cancel my trial before I am billed. How do I do this?
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+     <p class="color-gray"> If you have not entered a credit card then your account will automatically downgrade at the end of your trial with no charge made on your account. If you enter a credit card then you will be present with the option to downgrade. Note once you enter a credit card you will be charged for the plan you have selected with the trialing time remaining added to your account. Go to the "Billing" link in MyTippingApp and click "Downgrade" if you have entered a credit card previously.</p>
+    </div>
+</div> 
+                                </div>
+
+                 <div class="card">
+<div class="card-header">
+   
+   What is Set Desired Return and how do I use it? 
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+    <p class="color-gray">  Set Desired Return will monitor the return set on each race to ensure you are achieving the desired return.  If the Profit is les than the Desired Return amount it will be highlighted in red, if it is above the Desired Return amount it will be highlighted in green. <br>
+<br>
+To set the Desired Return Amount click on the button in MyTippingApp and enter the return amount you would like to achieve.  The default amount is set to $50.
+</p>
+    </div>
+</div>
+                                   </div>
+                 <div class="card">
+<div class="card-header">
+   
+    What is Set Desired Odds and how do I use it?
+ </div>
+  <div class="card-content">
+    <div class="card-content-inner">
+    <p class="color-gray">  Set Desired Odds will monitor the live odds on each runner in each highlight all runners in a race in red if they are paying more than the set amount.  To remove that runner from your selections click on the runner in MyTippingApp and it will be removed from the Staking Calculations and the new staking amounts will be automatically calculated.
+<br><br>
+To set the Desired Odds Amount click on the button in MyTippingApp and enter the return amount you would like to achieve.  The default amount is set to $15.
+</p>
+    </div>
+</div>
+                                   </div>
+ 
+                <!-----------------HELP-------------------------------------->
+</div>          
+        </div>
+      </div>
+          </div>
+
+      <!-- Bottom Tabbar-->
+      <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="#view-1" class="tab-link active"> <i class="icon fa-lg fa fa-calculator"></i><span class="tabbar-label">Tips</span></a>
+            <a href="#view-2" class="tab-link"><i class="icon fa-lg fa fa-book"></i><span class="tabbar-label">Glossary</span></a>
+            <a href="#view-3" class="tab-link"> <i class="icon fa-lg fa fa-question-circle"></i><span class="tabbar-label">Help</span></a></div>
+      </div>
+    </div>
+<script src="/javascripts/dutch/dutch.js"></script>
+<script src="/javascripts/dutch/dutch1.js"></script>
+<script src="/javascripts/dutch/dutch2.js"></script>
+<script src="/javascripts/dutch/dutch3.js"></script>
+<script src="/javascripts/dutch/dutch4.js"></script>
+<script src="/javascripts/dutch/dutch5.js"></script>
+<script src="/javascripts/dutch/dutch6.js"></script>
+<script src="/javascripts/dutch/dutch7.js"></script>
+<script src="/javascripts/dutch/dutch8.js"></script>
+<script src="/javascripts/dutch/dutch9.js"></script>
+<script src="/javascripts/dutch/dutch10.js"></script>
+<script src="/javascripts/dutch/dutch11.js"></script>
+<script src="/javascripts/dutch/dutch12.js"></script>
+<script src="/javascripts/dutch/dutch13.js"></script>
+<script src="/javascripts/dutch/dutch14.js"></script>
+<script src="/javascripts/dutch/dutch15.js"></script>
+<script src="/javascripts/dutch/dutch16.js"></script>
+
+<script type='text/javascript' src='/javascripts/knockout-3.0.0.js'></script> 
+<script src="/javascripts/knockout.mapping-latest.debug.js"></script>
+      <script type='text/javascript' src="/javascripts/ko.datasource.js"></script> 
+      <script src="/javascripts/jquery.csv-0.71.js"></script>
+      <script src="/javascripts/ko.js"></script>
+    <script src="/javascripts/proflev.js"></script>
+<style>
+/* A bit of demo styles */;
+    .swiper-container {
+        width: 500px;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+
+
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+</style>
+<script>
+function alertMsg() {
+//Textfield1
+function detectElement(arrow) {
+    arrow.parent().find('#textfield1').val('');
+}
+
+
+    $('.child').click(function(){
+        detectElement($(this));
+    });
+
+//Textfield2
+function detectElement2(arrow2) {
+    arrow2.parent().find('#textfield2').val('');
+}
+
+
+    $('.child').click(function(){
+        detectElement2($(this));
+    });
+
+//Textfield3
+function detectElement3(arrow3) {
+    arrow3.parent().find('#textfield3').val('');
+}
+
+
+    $('.child').click(function(){
+        detectElement3($(this));
+    });
+
+//Textfield1
+function detectElement4(arrow4) {
+    arrow4.parent().find('#textfield4').val('');
+}
+
+
+    $('.child').click(function(){
+        detectElement4($(this));
+    });
+ 
+  }
+  $(document).ready(function() {
+       setInterval(alertMsg,1000); 
+       // the function you called by setTimeout must not be a string.
+    });
+    
+    </script>
+      <!-- Picker 1 -->
+  <div class="picker-modal picker-1">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left">Set Desired Profit</div>
+        <div class="right"><a href="#" class="close-picker">Done</a></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block" style="margin:0;">
+          <p  style="font-size:12px;">Enter your desired profit here. The Default Amount is $50.</p>
+          <p style="font-size:12px;">The Profit box will highlight green when over this amount and red when under this amount.
+</p>
+<div class="list-block">
+  <ul>
+    <!-- Text inputs -->
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">Profit</div>
+          <div class="item-input">
+            <input type="text" name="profitlevel" id="profitlevel" value="50">
+          </div>
+        </div>
+      </div>
+    </li>
+ </ul>  
+</div>
+      </div>
+    </div>
+  </div>
+      <!-- Picker 2 -->
+  <div class="picker-modal picker-2">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left">Set Desired Odds</div>
+        <div class="right"><a href="#" class="close-picker">Done</a></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block" style="margin:0;">
+         <p  style="font-size:12px;">Enter your desired odds here. The Default Amount is $15.</p>
+          <p  style="font-size:12px;">The runners paying over this amount will be highlighted.  To exclude a runner and automatically recalculate the stake amount simply click on the runner name.</p>
+           
+<div class="list-block">
+  <ul>
+    <!-- Text inputs -->
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">Odds</div>
+          <div class="item-input">
+                      <input type="text" data-bind='value: stringValue'  placeholder="15"/>  
+          </div>
+        </div>
+      </div>
+    </li>
+ </ul>  
+</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    /**
+  GUIDE
+     */
+     
+   guiders.createGuider({
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "Welcome to MyTippingApp. We are going to take you on a short tour of the features.",
+      id: "welcome",
+      next: "guider3",
+      overlay: true,
+      title: "Welcome!",
+        width: 200
+    });
+   
+   guiders.createGuider({
+      attachTo: "#selectprof",
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "You can set a minimum profit you would like to achieve here.  The default amount is $50.",
+      id: "guider3",
+      next: "guider4",
+      position: 6,
+      title: "Desired Profit",
+      width: 150
+    });
+      guiders.createGuider({
+      attachTo: "#selectodds",
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "You can set a maximum odds amount here.  This will highlight runners over this amount.  The default limit is $15.",
+      id: "guider4",
+      next: "guider5",
+      position: 6,
+      title: "Desired Odds",
+      width: 150
+    });
+    
+    
+    guiders.createGuider({
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "Each race shown includes 4 top rated tips. The tips are ordered by score from 100 down.",
+      id: "guider5",
+      next: "guider66",
+      overlay: true,
+      title: "The Tips",
+      width: 200
+    });
+    guiders.createGuider({
+      attachTo: "#stake1",
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "To get started, enter a total stake value. Our default stake is $100.",
+      id: "guider66",
+      next: "guider6",       
+      position: 9,  
+      title: "Stake $",
+      width: 200
+    });
+    guiders.createGuider({
+      attachTo: "#totalstake",
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: " Total Stake is the total amount you want to bet on one race for all selected runners.  Our default stake is $100.",
+      id: "guider6",
+      next: "guider7",       
+      position: 3,  
+      title: "Total Stake",
+      width: 200
+    });
+    guiders.createGuider({
+      attachTo: "#totalstake0",
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "Your expected profit is calculated and displayed here. If the profit is below the Desired Profit you selected it will show red.",
+      id: "guider7",
+      next: "guider8",       
+      position: 9,  
+      title: "Profit",
+      width: 150
+    });
+    guiders.createGuider({
+      attachTo: "#rowruntop",
+      buttons: [{name: "Close"},{name: "Next"}],
+      description: "Click on a Runner to remove them from your selections.  The Stake Amount will automatically recalculate.  Runners are highlighted red if the odds are above your desired odds amount.",
+      id: "guider8",
+      next: "guider9",       
+      position: 6,  
+      title: "Removing Runners",
+      width: 200
+    });
+    guiders.createGuider({
+      attachTo: "#runscore",
+      buttons: [{name: "Close"},{name: "Next", onclick: guiders.next}],
+      description: "Our Scores are shown in green below each runner name. We use an advanced calculations and algorithm to assign the best possible score for each tip we carefully select.",
+      id: "guider9",
+      next: "guider10",       
+overlay: true,
+      title: "The Score",
+      width: 200
+    });  
+    guiders.createGuider({
+      buttons: [{name: "Close"}],
+      description: "Tips will be available each day at around 10am QLD time. You can review all past tips using the results menu option. If you need assistance don't hesitate to use support.",
+      id: "guider10",
+      next: "guider11",
+      overlay: true,
+      title: "Get Going",
+      width: 250
+    });
+      
+    </script>
+    

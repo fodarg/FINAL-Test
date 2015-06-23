@@ -1,0 +1,1084 @@
+{% extends 'layouts/application.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}	
+<script>$(document).ready(function () {
+    var target = document.location.hash.replace("#", "");
+    if (target.length) {
+        if(target=="help"){
+          showModal("Help",'<p>This app is a mobile web app. It will work on any device or computer. For the best experience please login to the app on your mobile device and save to your homescreen.</p> <p>If you want to add My Tipping App to the home screen of your mobile phone you will need to do the following steps depending on which type of phone you have.</p><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Download and Install Android Application</a><p>Download the android app by clicking on the below link. Once downloaded please install by clicking on the download. Agree to the installation and you will be able to access the MyTippingApp for Android. </p><a href="http://mytippingapp.com/www/app/MyTippingApp.apk" class="btn btn-app-download btn-primary"><i class="fa fa-android"></i><strong>Download App</strong> <span>for Android</span></a><br><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapsetwo">Add a Link Button to the Home Screen on iPhone/iPad</a><p>Launch the Safari browser on Apple’s iOS and navigate to the website or web page you want to add to your home screen. Tap the Share button on the browser’s toolbar — that’s the rectangle with an arrow pointing upward. It’s on the bar at the top of the screen on an iPad, and on the bar at the bottom of the screen on an iPhone or iPod Touch. Tap the Add to Home Screen icon in the Share menu.  Other browsers, like Chrome for iOS, don’t offer this feature. Due the limitations in Apple’s iOS,only Apple’s own Safari browser is allowed to do this.</p><p>After you have saved to your homescreen please login by clicking the button at the top of the screen.</p>');
+        }
+        else if(target=="option2"){
+            showModal("title2","content2");
+        }
+    }else{
+       
+    }
+
+    function showModal(title,content){
+        $('#myModal .modal-title').html(title);
+        $('#myModal .modal-body').html(content);
+        $('#myModal').modal('show');
+    }
+    
+});</script>
+		<!--
+		=================================
+		PRELOADER
+		=================================
+		-->
+		<div id="preloader" class="preloader">
+			<div class="preloader-inner">
+				<span class="preloader-logo">
+					<img src="images/logos/preloader-logo.png" alt="MyTippingApp" />
+					<strong>Loading</strong>
+				</span>
+			</div>
+		</div>
+
+		<div id="document" class="document">
+
+
+
+			<!--
+			=================================
+			HEADER
+			=================================
+			-->
+			<header class="header-section navbar navbar-fixed-top navbar-default header-floating">
+				<div class="container">
+
+					<div class="navbar-header">
+
+						<!-- RESPONSIVE MENU BUTTON -->
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+						<!-- NAVBAR LOGO -->
+						<a class="navbar-brand navbar-logo" href="#home"><img src="images/logos/navbar-logo.png" alt="MyTippingApp" /></a>
+					</div>
+
+					<div id="navigation" class="navbar-collapse collapse">
+						
+						<!-- NAVIGATION LINKS -->
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#home">Home</a></li>
+							<li><a href="#features">Features</a></li>
+							<li><a href="#pricing">Pricing</a></li>
+              <li><a href="/www/tipresult.html">Results</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#help">Help</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
+						</ul>
+
+					</div>
+
+				</div>
+			</header>
+
+			<!--
+			=================================
+			HERO SECTION
+			=================================
+			-->
+			<section id="home" class="hero-section hero-layout-3 section section-inverse-color parallax-background" data-stellar-background-ratio="0.4">
+
+				<!-- VIDEO BACKGROUND -->
+				<div class="video-background-container parallax" data-stellar-ratio="0.4">
+					<video preload="auto" autoplay loop muted class="video-background">
+						<source type="video/mp4" src="videos/video-bg.mp4" />
+						<source type="video/ogg" src="videos/video-bg.ogv" />
+						<source type="video/webm" src="videos/video-bg.webm" />
+					</video>
+				</div>
+
+				<!-- BACKGROUND OVERLAY -->
+				<div class="black-dot-background-overlay"></div>
+
+				<div class="container">
+
+					<div class="hero-content">
+                        <div class="row">
+<div class="col-sm-6">
+						<!-- HERO TEXT -->
+						<div class="hero-text wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+							
+							<!-- LOGO -->
+							<img src="images/logos/hero-logo.png" alt="MyTippingApp" class="hero-logo" />
+
+							<!-- TAGLINE -->
+							<h1 class="hero-title">Delivering everything <strong>you need to become</strong> a successful punter.</h1>
+
+							<!-- HERO DESCRIPTION -->
+							
+                             <ul style="font-size:16px; color:#fff; list-style:none;">
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> Great Tips</li>
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> Live Prices</li>
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> Useful Calculators</li>
+					<li><i style="color:#2bbe75" class="fa fa-check-circle"></i> In App Support</li>
+				</ul>
+                            <p class="hero-description">Why try and do it all yourself, save hours of form analysis by letting our technology to do all of the work and find the winners for you?</p>
+							<!-- DOWNLOAD BUTTONS -->
+							<p class="download-buttons">
+
+								<!-- PLAY STORE DOWNLOAD -->
+								<a href="http://mytippingapp.com/www/app/MyTippingApp.apk" class="btn btn-app-download btn-primary">
+									<i class="fa fa-android"></i>
+									<strong>Download App</strong> <span>for Android</span>
+								</a>
+								<!-- WINDOWS PHONE STORE DOWNLOAD -->
+								<!--<a href="#please-edit-this-link" class="btn btn-app-download btn-windows-phone">
+									<i class="fa fa-windows"></i>
+									<strong>Download App</strong> <span>from Windows Store</span>
+								</a>-->
+							</p>
+
+						</div>
+</div>
+						<!-- HERO IMAGES -->
+                        <div class="col-sm-6">
+						<div class="hero-images">
+               <div class="well wow fadeInRight" alt="" data-wow-duration="1s" data-wow-delay="0.5s" style="max-width:400px;">
+              <form action="/signup" method="POST" id="sign">
+                  <h2 style="color:#333"><span>FREE 14 DAY TRIAL</span></h2>
+                  <p style="font-size:12px;color:#5CB85C;text-align:center;margin-bottom: 0px;">professional package valued at $99 per month<br><span style="color:#333;font-size:16px;">Includes tips every day.</span></p>
+                  
+
+       <div class="row">
+           <div class="form-group">
+               
+                 <div class="col-sm-6">
+                      <div class="input-group">
+          <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{form.fname}}" autofocus required>
+                          </div>
+                                                                                                              </div>
+                <div class="col-sm-6">
+                     <div class="input-group">
+          <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{form.lname}}" autofocus required>
+                         </div>
+                  </div>
+        </div>       
+        </div> 
+                  
+       <div class="row" style="padding-top:10px;">
+                 <div class="col-sm-12">
+                      
+          <input type="text" name="email" class="form-control" placeholder="Email address" value="{{form.email}}" autofocus required>
+                          
+                </div>
+        </div> 
+                  <div class="row" style="padding-top:10px;">
+                 <div class="col-sm-12">
+                      
+          <input type="password" name="password" class="form-control" placeholder="Password">
+                          
+         </div>
+        </div> 
+                  <div class="row" style="padding-top:10px;">
+                 <div class="col-sm-12">
+                     <h3 style="color:#333333">Do you have a discount code?</h3>
+<input type="radio" id="radio1" name="radios" value="radio1" >
+   <label for="radio1" style="color:#333">Yes</label>
+         
+<input type="radio" id="radio2" name="radios"value="radio2" checked>
+   <label for="radio2" style="color:#333">No</label>
+                     
+                     <input id="plan" type="hidden" name="plan" class="form-control" placeholder="" value="free" >
+                     <div id="couponl">
+                         <p style="color:#333333;font-size:12px;">If you received a discount code enter it below:</p>
+          <input id="coupon" type="text" name="coupon" class="form-control" placeholder="Enter your VIP coupon code here" value="none" onfocus="{ this.value = ''; }">   <input type="hidden" name="pap_custom" value="" id="pap_tdx8v2s5a" />
+
+<script id="pap_x2s6df8d" src="http://mytippingapp.postaffiliatepro.com/scripts/salejs.php" type="text/javascript">
+</script>
+<script type="text/javascript">
+  PostAffTracker.writeCookieToCustomField('pap_tdx8v2s5a');
+</script>
+                         </div>
+                     </div>
+        </div> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up »</button>
+      </form>
+                       {% include "../views/partials/flash.html" %}
+                   <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+                   <script>
+                       var radios = document.getElementsByName("radios");
+var couponl =  document.getElementById("couponl");
+couponl.style.display = 'none';   // hide
+for(var i = 0; i < radios.length; i++) {
+    radios[i].onclick = function() {
+        var val = this.value;
+        if(val == 'radio1'){
+            couponl.style.display = 'block';
+        }
+        else if(val == 'radio2'){
+             couponl.style.display = 'none';
+        }    
+            
+    }
+}</script>
+                   <script>
+                   $(function() {
+  $('input#coupon').on("blur", function() {
+    if ($(this).val() == "") {
+      $(this).val(this.defaultValue);
+    }
+  }); 
+  
+  // help older browsers support placeholder
+  if (!placeholderIsSupported) {
+    $('#coupon1')
+    .val($('#coupon1').attr("placeholder"))
+    .on("blur", function() {
+      if ($(this).val() == "") {
+        $(this).val($(this).attr("placeholder"));
+      }
+    })
+    .on("focus",function() {
+        if ($(this).val()==$(this).attr("placeholder")) $(this).val("");
+    });
+  }  
+}); 
+
+function placeholderIsSupported() {
+ var test = document.createElement('input');
+ return ('placeholder' in test);
+}</script>
+
+                   </div>
+
+</div>
+						</div>
+					</div>
+</div>
+				</div>
+			</section>
+
+			<!--
+			=================================
+			FEATURES SECTION
+			=================================
+			-->
+			<section id="features" class="features-section section">
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Features</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s">Offering the features you need to make the most of the our best racing tips.</p>
+						</div>
+					</div>
+
+					<div class="featuers-list-wrapper row">
+
+						<!-- FEATURES LEFT -->
+						<div class="col-md-4 col-sm-6">
+							<ul class="features-list features-list-left wow fadeInLeft" data-wow-duration="1s">
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/tips.png" width="100px"/>
+									<h5>Daily Tips</h5>
+									<p>Our best selections delivered every day.</p>
+								</li>
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/priceupdate.png" width="100px"/>
+									<h5>Live Prices</h5>
+									<p>Live prices updated every minute.</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- FEATURES RIGHT -->
+						<div class="col-md-4 col-md-push-4 col-sm-6">
+							<ul class="features-list features-list-right wow fadeInRight" data-wow-duration="1s">
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/calc.png" width="100px"/>
+									<h5>Staking Calculator</h5>
+									<p>Bet like an expert.</p>
+								</li>
+								<li class="features-list-item" style="text-align:center">
+                                    <img src="/img/chat.png" width="100px"/>
+									<h5>In-App Support</h5>
+									<p>Get support when you need it.</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- CLOSE UP PHONE IMAGE -->
+						<div class="col-md-4 col-md-pull-4 text-center">
+							<img src="images/contents/features-phone.png" class="features-image wow fadeInUp" alt="" data-wow-duration="1s" />
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+
+			<!--
+			=================================
+			FEATURES WITH ICONS SECTION
+			=================================
+			-->
+			<section id="features-icons" class="features-icons-section section">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-8 col-md-push-4">
+
+							<!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">Daily Tips</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">MyTippingApp is a next generation tipping service that scans the Internet for similarities in trusted tipsters suggestions and ranks them. The software then applies our unique algorithm to drill down even further eliminating the high-risk races. The software looks at the horse’s recent form by combining track data relating to Distance, Weight, Jockey, Recent wins, Barrier position and speed maps.</p>
+                            <!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">Live Prices</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">Well we have thought about that as well. MyTippingApp access live pricing data from the QLD TAB and updates every 5 seconds ensuring you have the best information.</p>
+						</div>
+
+						<!-- PHONE IMAGE -->
+						<div class="col-md-4 col-md-pull-8 text-center">
+							<img width="200px;" src="images/contents/features-icons-phone.png" class="features-icons-image wow fadeInLeft" alt="" data-wow-duration="1s" />
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			
+			<!--
+			=================================
+			DESCRIPTION1 SECTION
+			=================================
+			-->
+			<section id="description" class="description-section section">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-7">
+
+							
+<!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">Staking Calculator</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">It is well known in racing that level staking is not the most effective way to create long term success. So therefore we have included a Staking Calculator. The calculator will ask you whether you are aiming at making a total cash return for the race or a % return on investment. The Calculator will them tell you how much to put on each runner. If you can’t achieve your goal or a cash return or % return the app will tell you that as well.
+<br><br>
+What about prices I hear you say. Do I need to manually put them in? Nope we have thought of that as well.</p>
+                            <!-- SECTION HEADING -->
+							<h2 class="section-heading wow fadeIn" data-wow-duration="1s">In App Support</h2>
+							<p class="wow fadeIn" data-wow-duration="1s">The answers to all the questions on MyTippingApp are included inside the app itself. If you cannot find an answer to your question you can easily submit a question direct to support to receive a personalised answer.</p>
+						</div>
+
+						<!-- PHONE IMAGE -->
+						<div class="col-md-5 text-center">
+
+							<img width="200px;" src="images/contents/description-phone-back.png" class="description-image phone-image-double phone-image-left wow fadeInRight" alt="" data-wow-duration="1s" data-wow-delay="0.5s" />
+							<img width="200px;" src="images/contents/description-phone-front.png" class="description-image phone-image-double phone-image-right phone-image-front wow fadeInRight" alt="" data-wow-duration="1s" data-wow-delay="1.5s" />
+
+						</div>
+					</div>
+
+				</div>
+			</section>
+            <!--
+		
+
+		
+			<!--
+			=================================
+			PRICING SECTION
+			=================================
+			-->
+			<section id="pricing" class="pricing-section section">
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Affordable Packages</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s">We offer a number of packages for every kind of user.</p>
+						</div>
+					</div>
+                    <style>.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display: inline;     /* for IE7*/
+    *zoom:1;              /* for IE7*/
+
+}
+
+.nav-tabs {
+    text-align:center;
+}
+</style>
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#monthly" aria-controls="monthly" role="tab" data-toggle="tab">Monthly</a></li>
+    <li role="presentation"><a href="#yearly" aria-controls="yearly" role="tab" data-toggle="tab">Yearly</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="monthly">
+    <!-- PRICING TABLE -->
+					<ul class="pricing-table row">
+
+						<!-- PRICING PACKAGE 1 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Weekend</h4>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">39</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Tips Saturday</li>
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+									
+								</ul>
+                                <a class="btn btn-lg btn-primary btn-block" href="#" data-toggle="modal" data-target="#basicWeekend">Buy Now</a>
+							</div>
+						</li>
+
+						<!-- PRICING PACKAGE 2 -->
+                        <li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Casual</h4>
+
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">59</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+                                    <li><i class="fa fa-check"></i>Tips Wednesday &amp; Saturday</li>
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+								</ul>
+                                <a class="btn btn-lg btn-primary btn-block" href="#" data-toggle="modal" data-target="#basicCasual">Buy Now</a>
+							</div>
+						</li>
+						
+
+						<!-- PRICING PACKAGE 3 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package pricing-package-featured">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Pro <span class="label label-warning">Popular</span></h4>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">99</span>
+										<span class="price-period">per month</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+                                    <li><i class="fa fa-check"></i>Tips 7 Days</li>
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+								</ul>
+                                <a class="btn btn-lg btn-primary btn-block" href="#" data-toggle="modal" data-target="#basicPro">Buy Now</a>
+							</div>
+						</li>
+					</ul>
+      
+    </div>
+    <div role="tabpanel" class="tab-pane" id="yearly">
+    <!-- PRICING TABLE -->
+										<ul class="pricing-table row">
+
+						<!-- PRICING PACKAGE 1 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Weekend</h4>
+
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">390</span>
+										<span class="price-period">per year</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+									<li><i class="fa fa-check"></i>Tips Saturday</li>
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+								</ul>
+                                <a class="btn btn-lg btn-primary btn-block" href="#" data-toggle="modal" data-target="#basicWeekend">Buy Now</a>
+							</div>
+						</li>
+
+						<!-- PRICING PACKAGE 2 -->
+                                            <li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Casual</h4>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">590</span>
+										<span class="price-period">per year</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+                                    <li><i class="fa fa-check"></i>Tips Wednesday &amp; Saturday</li>
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+								</ul>
+                                <a class="btn btn-lg btn-primary btn-block" href="#" data-toggle="modal" data-target="#basicCasual">Buy Now</a>
+							</div>
+						</li>
+						
+
+						<!-- PRICING PACKAGE 3 -->
+						<li class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+							<div class="pricing-package pricing-package-featured">
+								<div class="pricing-package-strip"></div>
+								<div class="pricing-package-header">
+									<h4>Pro <span class="label label-warning">Popular</span></h4>
+									<div class="price">
+										<span class="price-currency">$</span>
+										<span class="price-number">990</span>
+										<span class="price-period">per year</span>
+									</div>
+								</div>
+								<ul class="pricing-package-items">
+                                    
+                                    <li><i class="fa fa-check"></i>Tips 7 Days</li>
+									<li><i class="fa fa-check"></i>Live Race Tips</li>
+									<li><i class="fa fa-check"></i>Built-in Calculator</li>
+									<li><i class="fa fa-check"></i>Race Glossary</li>
+									<li><i class="fa fa-check"></i>In-App Support</li>
+								</ul>
+                                <a class="btn btn-lg btn-primary btn-block" href="#" data-toggle="modal" data-target="#basicPro">Buy Now</a>
+							</div>
+						</li>
+					</ul>  
+    </div>
+    
+  </div>
+
+</div>
+					
+
+				</div>
+			</section>
+
+
+			<!--
+			=================================
+			DOWNLOAD SECTION
+			=================================
+			-->
+			<section id="subscribe" class="subscribe-section section section-inverse-color parallax-background" data-stellar-background-ratio="0.4">
+
+				<!-- BACKGROUND OVERLAY -->
+				<div class="black-background-overlay"></div>
+
+				<div class="container">
+
+					<!-- SECTION HEADING -->
+					<h2 class="section-heading text-center wow fadeIn" data-wow-duration="1s">Download Android App</h2>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="wow fadeIn" data-wow-duration="1s">Click the Button Below while on your Android to Download</p>
+                            <!-- DOWNLOAD BUTTONS -->
+					<p class="download-buttons wow fadeIn" data-wow-duration="1s">
+
+						<!-- PLAY STORE DOWNLOAD -->
+								<a href="#please-edit-this-link" class="btn btn-app-download btn-primary">
+									<i class="fa fa-android"></i>
+									<strong>Download App</strong> <span>for Android</span>
+								</a>
+						<!-- WINDOWS PHONE STORE DOWNLOAD -->
+						<!--<a href="#please-edit-this-link" class="btn btn-app-download btn-windows-phone">
+							<i class="fa fa-windows"></i>
+							<strong>Download App</strong> <span>from Windows Store</span>
+						</a>-->
+					</p>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			
+			<!--
+			=================================
+			FOOTER SECTION
+			=================================
+			-->
+			<footer class="footer-section section">
+
+				<!-- CONTACT SECTION TOGGLE -->
+				<a href="#contact" class="contact-toggle" data-toggle="collapse"><i class="icon-envelope"></i></a>
+
+				<div class="container">
+
+					
+
+					<!-- SOCIAL MEDIA LINKS -->
+					<ul class="social-media-links wow fadeIn" data-wow-duration="1s">
+						<li><a href="https://www.facebook.com/mytippingapp"><i class="fa fa-facebook"></i><span class="sr-only">Facebook</span></a>
+						<li><a href="https://twitter.com/mytippingapp"><i class="fa fa-twitter"></i><span class="sr-only">Twitter</span></a>
+						<li><a href="mailto:info@mytippingapp.com"><i class="fa fa-envelope"></i><span class="sr-only">Email</span></a>
+					</ul>
+
+					<!-- COPYRIGHT -->
+					<div class="copyright">Copyright &copy; MyTippingApp, All rights reserved | <a class="" href="#" data-toggle="modal" data-target="#modalpriv">Privacy Policy</a> | <a class="" href="#" data-toggle="modal" data-target="#modalterm">Terms and Conditions</a> | <a class="" href="#" data-toggle="modal" data-target="#modalrefund">Refund Policy</a></div>
+				</div>
+			</footer>
+
+		</div>
+ <!-- HELP MODAL -->
+<div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Help</h4>
+      </div>
+      <div class="modal-body">
+<p>This app is a mobile web app. It will work on any device or computer. For the best experience please login to the app on your mobile device and save to your homescreen.</p>
+<p>If you want to add My Tipping App to the home screen of your mobile phone you will need to do the following steps depending on which type of phone you have.</p>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+Download and Install Android Application
+          </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+<p>Download the android app by clicking on the below link. Once downloaded please install by clicking on the download. Agree to the installation and you will be able to access the MyTippingApp for Android. </p>
+								<!-- PLAY STORE DOWNLOAD -->
+								<a href="http://mytippingapp.com/www/app/MyTippingApp.apk" class="btn btn-app-download btn-primary">
+									<i class="fa fa-android"></i>
+									<strong>Download App</strong> <span>for Android</span>
+								</a>
+</div>
+    </div>
+  </div>
+      <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapsetwo">
+Add a Link Button to the Home Screen on iPhone/iPad
+</a>
+    </div>
+    <div id="collapsetwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+<p>Launch the Safari browser on Apple’s iOS and navigate to the website or web page you want to add to your home screen. Tap the Share button on the browser’s toolbar — that’s the rectangle with an arrow pointing upward. It’s on the bar at the top of the screen on an iPad, and on the bar at the bottom of the screen on an iPhone or iPod Touch. Tap the Add to Home Screen icon in the Share menu.  Other browsers, like Chrome for iOS, don’t offer this feature. Due the limitations in Apple’s iOS,only Apple’s own Safari browser is allowed to do this.</p>
+
+<p>After you have saved to your homescreen please login by clicking the button at the top of the screen.</p>  
+          </div>
+    </div>
+  </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- LOGIN MODAL -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+                       <form accept-charset="UTF-8" action="/login" method="POST" role="form">
+                           <div class="input-group">
+  <span class="input-group-addon" id="username">Email</span>
+  <input type="text" class="form-control" placeholder="Email" aria-describedby="username" id="email" name="email" value="{{form.email}}" autofocus>
+</div>
+                           <div class="input-group">
+  <span class="input-group-addon" id="pw">PW</span>
+		<input type="password" placeholder="Password" name="password" class="form-control" aria-describedby="pw">	
+</div>
+			 <div class="input-group">
+			<input type="submit" value="Login" class="btn btn-lg btn-primary btn-block"><a style="color:#43B554" href="/forgot"> Forgot</a>
+                 </div>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY --><!-- MODAL FOR MONTHLY -->
+
+<!-- MODAL FOR CASUAL -->
+<div class="modal fade" id="basicCasual" tabindex="-1" role="dialog" aria-labelledby="basicCasual" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Become a Casual Member</h4>
+      </div>
+      <div class="modal-body">
+          <form action="/signup" method="POST">
+                  <p style="font-size:12px;color:#5CB85C;text-align:center;">You will select Monthly or Yearly on the next step</p>
+                  
+
+       <div class="row">
+                 <div class="col-sm-6">
+          <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{form.fname}}" autofocus>
+                                                                                                              </div>
+                <div class="col-sm-6">
+          <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{form.lname}}" autofocus>
+                  </div>
+        </div>         
+       <div class="row">
+                 <div class="col-sm-12">
+          <input type="text" name="email" class="form-control" placeholder="Email address" value="{{form.email}}" autofocus>
+                </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+         </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+                     <input id="plan" type="hidden" name="plan" class="form-control" placeholder="" value="casual-nocc" > 
+          <input id="coupon" type="hidden" name="coupon" class="form-control" placeholder="" value="none">   
+                     </div>
+        </div> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up »</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL FOR CASUAL -->
+<!-- MODAL FOR WEEKEND -->
+<div class="modal fade" id="basicWeekend" tabindex="-1" role="dialog" aria-labelledby="basicWeekend" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Become a Weekend Member</h4>
+      </div>
+      <div class="modal-body">
+           <form action="/signup" method="POST">
+                  <p style="font-size:12px;color:#5CB85C;text-align:center;">You will select Monthly or Yearly on the next step</p>
+                  
+
+       <div class="row">
+                 <div class="col-sm-6">
+          <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{form.fname}}" autofocus>
+                                                                                                              </div>
+                <div class="col-sm-6">
+          <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{form.lname}}" autofocus>
+                  </div>
+        </div>         
+       <div class="row">
+                 <div class="col-sm-12">
+          <input type="text" name="email" class="form-control" placeholder="Email address" value="{{form.email}}" autofocus>
+                </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+         </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+                     <input id="plan" type="hidden" name="plan" class="form-control" placeholder="" value="weekend-nocc" > 
+          <input id="coupon" type="hidden" name="coupon" class="form-control" placeholder="" value="none">   
+                     </div>
+        </div> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up »</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL FOR WEEKEND -->
+<!-- MODAL FOR SEMIPRO -->
+<div class="modal fade" id="basicSemipro" tabindex="-1" role="dialog" aria-labelledby="basicSemipro" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Become a Semi-Pro Member</h4>
+      </div>
+      <div class="modal-body">
+           <form action="/signup" method="POST">
+                <p style="font-size:12px;color:#5CB85C;text-align:center;">You will select Monthly or Yearly on the next step</p>
+                  <p style="color:#333;">Wednesday, Thursday, Friday &amp; Saturday Tips</p>
+                  
+
+       <div class="row">
+                 <div class="col-sm-6">
+          <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{form.fname}}" autofocus>
+                                                                                                              </div>
+                <div class="col-sm-6">
+          <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{form.lname}}" autofocus>
+                  </div>
+        </div>         
+       <div class="row">
+                 <div class="col-sm-12">
+          <input type="text" name="email" class="form-control" placeholder="Email address" value="{{form.email}}" autofocus>
+                </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+         </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+                     <input id="plan" type="hidden" name="plan" class="form-control" placeholder="" value="semipro-nocc" > 
+          <input id="coupon" type="hidden" name="coupon" class="form-control" placeholder="" value="none">   
+                     </div>
+        </div> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up »</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL FOR SEMIPRO -->
+<!-- MODAL FOR PRO -->
+<div class="modal fade" id="basicPro" tabindex="-1" role="dialog" aria-labelledby="basicPro" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Become a Professional Member</h4>
+      </div>
+      <div class="modal-body">
+           <form action="/signup" method="POST" id="sign">
+                  <h2><span>FREE 14 DAY TRIAL</span></h2>
+                  <p style="font-size:12px;color:#5CB85C;text-align:center;">You will select Monthly or Yearly on the next step</p>
+                  <p style="color:#333;">Tips 7 Days Per Week</p>
+                  
+
+       <div class="row">
+                 <div class="col-sm-6">
+          <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{form.fname}}" autofocus>
+                                                                                                              </div>
+                <div class="col-sm-6">
+          <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{form.lname}}" autofocus>
+                  </div>
+        </div>         
+       <div class="row">
+                 <div class="col-sm-12">
+          <input type="text" name="email" class="form-control" placeholder="Email address" value="{{form.email}}" autofocus>
+                </div>
+        </div> 
+                  <div class="row">
+                 <div class="col-sm-12">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+         </div>
+        </div> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up »</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL FOR priv -->
+<div class="modal fade" id="modalpriv" tabindex="-1" role="dialog" aria-labelledby="modalpriv" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title" id="myModalLabel">Privacy Policy</h4>
+
+            </div>
+            <div class="modal-body">
+            
+            <h2>Privacy Policy</h2>
+            <p>Privacy Policy</p>
+<p>Last updated: June 01, 2015</p>
+<p>MyTippingApp (“us”, “we”, or “our”) operates the http://MyTippingApp.com website (the “Service”).</p>
+<p>This page informs you of our policies regarding the collection, use and disclosure of Personal Information when you use our Service.</p>
+<p>We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+<p>We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at http://MyTippingApp.com</p>
+<p>Information Collection And Use</p>
+<p>While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to, your name and phone number (“Personal Information”).</p>
+<p>Log Data</p>
+<p>We collect information that your browser sends whenever you visit our Service (“Log Data”). This Log Data may include information such as your computer’s Internet Protocol (“IP”) address, browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages and other statistics.</p>
+<p>Cookies</p>
+<p>Cookies are files with small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a web site and stored on your computer’s hard drive.</p>
+<p>We use “cookies” to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+<p>Service Providers</p>
+<p>We may employ third party companies and individuals to facilitate our Service, to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.</p>
+<p>These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+<p>Security</p>
+<p>The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.</p>
+<p>Links To Other Sites</p>
+<p>Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party’s site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
+<p>We have no control over, and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
+<p>Children’s Privacy</p>
+<p>Our Service does not address anyone under the age of 13 (“Children”).</p>
+<p>We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your Children has provided us with Personal Information, please contact us. If we discover that a Children under 13 has provided us with Personal Information, we will delete such information from our servers immediately.</p>
+<p>Changes To This Privacy Policy</p>
+<p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+<p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+<p>Contact Us</p>
+<p>If you have any questions about this Privacy Policy, please contact us: info@mytippingapp.com</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- MODAL FOR term -->
+<div class="modal fade" id="modalterm" tabindex="-1" role="dialog" aria-labelledby="modalterm" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title" id="myModalLabel">Terms and Conditions (&ldquo;Terms&rdquo;)</h4>
+
+            </div>
+            <div class="modal-body">
+            
+            <h2>Terms and Conditions (&ldquo;Terms&rdquo;)</h2>
+
+<p>Last updated: June 01, 2015</p>
+<p>Please read these Terms and Conditions (&ldquo;Terms&rdquo;, &ldquo;Terms and Conditions&rdquo;) carefully before using the http://MyTippingApp.com website (the &ldquo;Service&rdquo;) operated by MyTippingApp (&ldquo;us&rdquo;, &ldquo;we&rdquo;, or &ldquo;our&rdquo;).</p>
+<p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
+<p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</p>
+<p><strong>Accounts</strong></p>
+<p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
+<p>You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password, whether your password is with our Service or a third-party service.</p>
+<p>You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
+<p><strong>Links To Other Web Sites</strong></p>
+<p>Our Service may contain links to third-party web sites or services that are not owned or controlled by MyTippingApp.</p>
+<p>MyTippingApp has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that MyTippingApp shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+<p>We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.</p>
+<p><strong>Governing Law</strong></p>
+<p>These Terms shall be governed and construed in accordance with the laws of Queensland, Australia, without regard to its conflict of law provisions.</p>
+<p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.</p>
+<p><strong>Changes</strong></p>
+<p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 15 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+<p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+<p><strong>Contact Us</strong></p>
+<p>If you have any questions about these Terms, please contact us: info@mytippingapp.com</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- MODAL FOR term -->
+<div class="modal fade" id="modalrefund" tabindex="-1" role="dialog" aria-labelledby="modalrefund" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title" id="myModalLabel">Returns and Refunds Policy</h4>
+
+            </div>
+            <div class="modal-body">
+            
+           <h2>Returns and Refunds Policy</h2>
+<p>Thank you for shopping at MyTippingApp.</p>
+<p><strong>Digital products</strong></p>
+<p>We issue refunds for digital products within 7 days of the original purchase of the product.</p>
+<p>We recommend contacting us for assistance if you experience any issues receiving or downloading our products.</p>
+<p><strong>Contact us</strong></p>
+<p>If you have any questions about our Returns and Refunds Policy, please contact us: info@mytippingapp.com</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script>
+    $.validator.addMethod("equals", function(value, element, string) {
+    return $.inArray(value, string) !== -1;
+}, $.validator.format("Please enter either 'none' or a valid coupon."));
+$("#sign").validate({
+    rules: {
+         field: {
+required: true,
+email: true
+},
+        coupon: {
+            equals: ["none", "specialtrilogics", "TRI50"]
+        }
+    },
+    messages: {
+        name: "Please enter either 'none' or a valid coupon."
+    }
+});
+</script>
+		<!--
+		=================================
+		JAVASCRIPTS
+		=================================
+		-->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="js/smoothscroll.min.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/jquery.nav.min.js"></script>
+		<script src="js/nivo-lightbox.min.js"></script>
+		<script src="js/jquery.stellar.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/script.js"></script>
+{% endblock %}

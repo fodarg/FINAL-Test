@@ -1,0 +1,246 @@
+{% extends '../layouts/dashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+{% include "../partials/flash.html" %}
+<script>window.Intercom('update');</script>
+
+
+   
+<!------------NAVBAR------------------>
+ 
+<div class="statusbar-overlay"></div>
+
+ 
+<div class="views">
+ 
+ 
+<div class="panel-overlay"></div>
+ 
+<div class="panel panel-left panel-cover">
+ 
+<div class="view view-left navbar-through">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="left"></div>
+<div class="center sliding">Main Menu</div>
+<div class="right"></div>
+</div>
+</div>
+<div class="pages">
+<div data-page="index-left" class="page">
+<div class="page-content">
+<div class="list-block">
+<ul>
+<li><a href="/dashboard" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">{% if user.plan == 'notrial' %}Register{% else %}Tips{% endif %}</div>
+</div></a></li>
+<li><a href="/www/tipresult.html" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Results</div>
+</div></a></li>
+<li><a id="Intercom" href="mailto:gou9n4i8@incoming.intercom.io" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Support</div>
+</div></a></li>
+<li><a href="/billing" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Billing</div>
+</div></a></li>
+<li><a href="/logout" class="item-content item-link external">
+<div class="item-inner">
+<div class="item-title">Logout</div>
+</div></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!----------------------NAVBAR END-------------------->
+
+
+    <!-- Views, and they are tabs-->
+
+    <div class="views tabs toolbar-through">
+      <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+      <div id="view-1" class="view view-main tab active">
+                  <div class="navbar">
+          <div class="navbar-inner">
+              <div class="left">
+            <a href="#" data-panel="left" class="open-panel link icon-only" >
+                <i class="icon icon-bars"></i>
+            </a>
+             </div>
+            <div class="center sliding">Profile</div>
+          </div>
+        </div>
+        <!-- Pages-->
+        <div class="pages navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+<!-----------------TIPS-------------------------------------->
+                <div class="content-block-title">User Profile</div>
+  <form action="/user" method="POST" class="form-horizontal">
+<div class="list-block">
+  <ul>
+    <!-- Text inputs -->
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">First Name</div>
+          <div class="item-input">
+            <input type="text" placeholder="{{user.fname}}" name="fname" id="fname" value="{{user.fname}}">
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">Last Name</div>
+          <div class="item-input">
+            <input type="text" placeholder="{{user.lname}}" name="lname" id="lname" value="{{user.lname}}">
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">E-mail</div>
+          <div class="item-input">
+            <input type="email" name="email" id="email" placeholder="{{user.email}}" value="{{user.email}}">
+          </div>
+        </div>
+      </div>
+    </li>
+      <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">Discount Code</div>
+          <div class="item-input">
+            <input type="text" name="coupon" id="coupon" placeholder="{{user.coupon}}" value="{{user.coupon}}">
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+    <div class="content-block"> <p> <button type="submit" class="button button-fill color-green">Update Profile</button>  </p>   </div>
+</form>
+                
+                <div class="content-block-title">Update Password</div>
+  <form action="/user/password" method="POST" class="form-horizontal"> 
+      <div class="list-block">
+  <ul>
+    <!-- Text inputs -->
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">New Password</div>
+          <div class="item-input">
+            <input  type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">Confirm Password</div>
+          <div class="item-input">
+            <input type="password" name="confirm" placeholder="Confirm">
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+       <div class="content-block"><p><button type="submit" class="button button-fill color-green">Update Password</button></p></div>  
+        </form>
+     <div class="list-block">
+  <ul>
+    <!-- Text inputs -->
+     <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">Card Last 4</div>
+          <div class="item-input">
+            <p>{{user.stripe.last4}}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        
+        <div class="item-inner">
+          <div class="item-title label">Plan</div>
+          <div class="item-input">
+            <p>{{plans[user.plan].name}} - ${{plans[user.plan].price}}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div> 
+                <!-----------------TIPS-------------------------------------->
+    </div>
+          </div>
+        </div>
+      </div>
+
+
+<script src="/javascripts/dutch/dutch.js"></script>
+<script src="/javascripts/dutch/dutch1.js"></script>
+<script src="/javascripts/dutch/dutch2.js"></script>
+<script src="/javascripts/dutch/dutch3.js"></script>
+<script src="/javascripts/dutch/dutch4.js"></script>
+<script src="/javascripts/dutch/dutch5.js"></script>
+<script src="/javascripts/dutch/dutch6.js"></script>
+<script src="/javascripts/dutch/dutch7.js"></script>
+<script src="/javascripts/dutch/dutch8.js"></script>
+<script src="/javascripts/dutch/dutch9.js"></script>
+<script src="/javascripts/dutch/dutch10.js"></script>
+<script src="/javascripts/dutch/dutch11.js"></script>
+<script src="/javascripts/dutch/dutch12.js"></script>
+<script src="/javascripts/dutch/dutch13.js"></script>
+<script src="/javascripts/dutch/dutch14.js"></script>
+<script src="/javascripts/dutch/dutch15.js"></script>
+<script src="/javascripts/dutch/dutch16.js"></script>
+
+<script type='text/javascript' src='/javascripts/knockout-3.0.0.js'></script> 
+<script src="/javascripts/knockout.mapping-latest.debug.js"></script>
+      <script type='text/javascript' src="/javascripts/ko.datasource.js"></script> 
+      <script src="/javascripts/jquery.csv-0.71.js"></script>
+      <script src="/javascripts/ko.js"></script>
+<style>
+/* A bit of demo styles */;
+.swiper-container {
+  height: 100%;
+}
+.swiper-slide {
+  background:#fff;
+}
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin:20px;
+  font-size:21px;
+}
+</style>
+
+{% endblock %}
